@@ -67,7 +67,7 @@ class _MiddleOfPAgeState extends State<MiddleOfPage> {
       _errorText = null;
       Navigator.of(context).pushNamed('/mainsreen');
     } else {
-      _errorText = 'Неправильный логин или пароль';
+      _errorText = 'Неправильный логин или парольНеправильный логин или парольНеправильный логин или парольНеправильный логин или парольНеправильный логин или парольНеправильный логин или пароль';
     }
     setState(() {});
   }
