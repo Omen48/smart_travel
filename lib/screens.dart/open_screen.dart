@@ -59,8 +59,17 @@ class MiddleOfPage extends StatefulWidget {
 }
 
 class _MiddleOfPAgeState extends State<MiddleOfPage> {
+  String? _errorText;
+  final _logincontroller = TextEditingController();
+  final _passcontroller = TextEditingController();
   void auth() {
-    Navigator.of(context).pushNamed('/mainsreen');
+    if (_logincontroller.text == 'admin' && _passcontroller.text == 'admin') {
+      _errorText = null;
+      Navigator.of(context).pushNamed('/mainsreen');
+    } else {
+      _errorText = 'Неправильный логин или пароль';
+    }
+    setState(() {});
   }
 
   static const textfield = InputDecoration(
@@ -78,12 +87,26 @@ class _MiddleOfPAgeState extends State<MiddleOfPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        if (_errorText != null) ...[
+          Text(
+            '$_errorText',
+            style: const TextStyle(
+              fontWeight: FontWeight.w300,
+              fontSize: 17,
+              color: Color.fromRGBO(3, 37, 60, 1),
+            ),
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+        ],
         const Text(
           'Логин',
           style: textstyle1,
         ),
         const SizedBox(height: 5),
         TextField(
+          controller: _logincontroller,
           inputFormatters: [
             FilteringTextInputFormatter.allow(
               RegExp("[а-яА-Яa-zA-Z0-9]"),
@@ -95,6 +118,7 @@ class _MiddleOfPAgeState extends State<MiddleOfPage> {
         const Text('Пароль', style: textstyle1),
         const SizedBox(height: 5),
         TextField(
+          controller: _passcontroller,
           inputFormatters: [
             FilteringTextInputFormatter.allow(RegExp("[а-яА-Яa-zA-Z0-9]")),
           ],
@@ -105,16 +129,17 @@ class _MiddleOfPAgeState extends State<MiddleOfPage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            ElevatedButton(onPressed: auth, child: const Text('Войти')),
-            // TextButton(
-            //   onPressed: () {},
-            //   child: const Text(
-            //     'Забыли пароль?',
-            //     style: TextStyle(
-            //       fontSize: 10,
-            //     ),
-            //   ),
-            // ),
+            ElevatedButton(onPressed: auth, child: const Text('Войти'),),
+            if (_errorText != null)...
+            [TextButton(
+              onPressed: () {},
+              child: const Text(
+                'Забыли пароль?',
+                style: TextStyle(
+                  fontSize: 10,
+                ),
+              ),
+            ),],
             TextButton(
               onPressed: () {},
               child: const Text(
