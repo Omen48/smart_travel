@@ -1,0 +1,29 @@
+# Flutter & Dart specific
+.dart_tool/
+.packages
+pubspec.lock
+
+# Build output directory
+build/
+
+# Platform specific directories
+/android/
+/ios/
+/linux/
+/windows/
+/macos/
+/build/
+
+# IDE related files
+.idea/
+.vscode/
+
+# System files
+.DS_Store
+*.pid.lock
+
+# ENV files
+.env
+
+# Miscellaneous files
+*.log
