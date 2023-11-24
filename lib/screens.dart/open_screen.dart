@@ -10,7 +10,7 @@ class OpenScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Center(
           child: Text(
-            'Smart Traveller',
+            'Smart Travel',
             style: TextStyle(
               color: Colors.white,
               fontSize: 30,
@@ -45,7 +45,7 @@ class TopOfPAge extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        Text('Добро пожаловать!!', style: textstyle),
+        Text('Добро пожаловать', style: textstyle),
       ],
     );
   }
@@ -60,12 +60,12 @@ class MiddleOfPage extends StatefulWidget {
 
 class _MiddleOfPAgeState extends State<MiddleOfPage> {
   String? _errorText;
-  final _logincontroller = TextEditingController();
-  final _passcontroller = TextEditingController();
+  final _logincontroller = TextEditingController(text: 'admin');
+  final _passcontroller = TextEditingController(text: 'admin');
   void auth() {
     if (_logincontroller.text == 'admin' && _passcontroller.text == 'admin') {
       _errorText = null;
-      Navigator.of(context).pushNamed('/mainsreen');
+      Navigator.of(context).pushReplacementNamed('/mainsreen');
     } else {
       _errorText = 'Неправильный логин';
     }

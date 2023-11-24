@@ -1,3 +1,4 @@
+import 'package:auth_study/screens.dart/loadscreen.dart';
 import 'package:auth_study/screens.dart/main_screen.dart';
 import 'package:auth_study/screens.dart/open_screen.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: {
         '/auth': (context) => const OpenScreen(),
-        '/mainsreen': (context) => const Mainscreen()
+        '/mainsreen': (context) => const Mainscreen(),
+        '/startscreen':(context) => const StartScreen()
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -23,9 +25,15 @@ class MyApp extends StatelessWidget {
         appBarTheme: const AppBarTheme(
           backgroundColor: Color.fromRGBO(3, 37, 60, 1),
         ),
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          backgroundColor: Color.fromRGBO(3, 37, 60, 1),
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.grey,
+          type: BottomNavigationBarType.fixed
+        ),
         useMaterial3: true,
       ),
-      initialRoute: '/auth',
+      initialRoute: '/startscreen',
     );
   }
 }
