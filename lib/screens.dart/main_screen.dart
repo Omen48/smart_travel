@@ -1,6 +1,6 @@
 import 'package:auth_study/screens.dart/map_screen.dart';
 import 'package:auth_study/screens.dart/places_screen.dart';
-import 'package:auth_study/screens.dart/searchScreen.dart';
+
 import 'package:auth_study/screens.dart/user_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -14,8 +14,7 @@ class Mainscreen extends StatefulWidget {
 class _MainscreenState extends State<Mainscreen> {
   int _selectedScreen = 0;
 
-  List<Widget> currentScreen = const <Widget> [
-    SearchScreen(),
+  List<Widget> currentScreen = const <Widget>[
     PlacesScreen(),
     MapScreen(),
     UserInfoScreen()
@@ -48,10 +47,6 @@ class _MainscreenState extends State<Mainscreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedScreen,
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Поиск',
-          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.home_filled),
             label: 'Места',

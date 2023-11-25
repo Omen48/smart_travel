@@ -141,7 +141,9 @@ class _MiddleOfPAgeState extends State<MiddleOfPage> {
               ),
             ),],
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed('/registerscreen');
+              },
               child: const Text(
                 'Регистрация',
                 style: TextStyle(fontSize: 10),

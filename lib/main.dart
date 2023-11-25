@@ -1,6 +1,7 @@
 import 'package:auth_study/screens.dart/loadscreen.dart';
 import 'package:auth_study/screens.dart/main_screen.dart';
 import 'package:auth_study/screens.dart/open_screen.dart';
+import 'package:auth_study/screens.dart/register_screen.dart';
 import 'package:auth_study/values/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/auth': (context) => const OpenScreen(),
         '/mainsreen': (context) => const Mainscreen(),
-        '/startscreen':(context) => const StartScreen()
+        '/startscreen':(context) => const StartScreen(),
+        '/registerscreen':(context) => const RegisterScreen()
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -30,7 +32,6 @@ class MyApp extends StatelessWidget {
           backgroundColor: MainTheme.mainThemeColor,
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.grey,
-          type: BottomNavigationBarType.fixed
         ),
         useMaterial3: true,
       ),
