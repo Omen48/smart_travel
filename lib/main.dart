@@ -1,6 +1,7 @@
 import 'package:auth_study/screens.dart/loadscreen.dart';
 import 'package:auth_study/screens.dart/main_screen.dart';
 import 'package:auth_study/screens.dart/open_screen.dart';
+import 'package:auth_study/values/colors.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,10 +24,10 @@ class MyApp extends StatelessWidget {
         colorScheme:
             ColorScheme.fromSeed(seedColor: const Color.fromRGBO(3, 37, 65, 1)),
         appBarTheme: const AppBarTheme(
-          backgroundColor: Color.fromRGBO(3, 37, 60, 1),
+          backgroundColor: MainTheme.mainThemeColor,
         ),
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: Color.fromRGBO(3, 37, 60, 1),
+          backgroundColor: MainTheme.mainThemeColor,
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.grey,
           type: BottomNavigationBarType.fixed

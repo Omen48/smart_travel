@@ -1,3 +1,7 @@
+import 'package:auth_study/screens.dart/map_screen.dart';
+import 'package:auth_study/screens.dart/places_screen.dart';
+import 'package:auth_study/screens.dart/searchScreen.dart';
+import 'package:auth_study/screens.dart/user_screen.dart';
 import 'package:flutter/material.dart';
 
 class Mainscreen extends StatefulWidget {
@@ -11,10 +15,10 @@ class _MainscreenState extends State<Mainscreen> {
   int _selectedScreen = 0;
 
   List<Widget> currentScreen = const <Widget> [
-    Text('Поиск'),
-    Text('места'),
-    Text('Карта'),
-    Text('Обо мне')
+    SearchScreen(),
+    PlacesScreen(),
+    MapScreen(),
+    UserInfoScreen()
   ];
 
   void onSelectedTab(int index) {
