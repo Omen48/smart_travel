@@ -32,9 +32,7 @@ class UserInfoScreen extends StatelessWidget {
       body: SizedBox(
         width: double.infinity,
         child: ListView(
-          physics: const BouncingScrollPhysics(),
-          // crossAxisAlignment: CrossAxisAlignment.center,
-          // mainAxisAlignment: MainAxisAlignment.start,
+          // physics: const BouncingScrollPhysics(),
           children: const [
             UserInfo(),
             SizedBox(
@@ -186,7 +184,12 @@ class Photo extends StatelessWidget {
     return SizedBox(
       width: 150,
       height: 100,
-      child: Image.asset('images/profile.png'),
+      child: CircleAvatar(
+        backgroundColor: Colors.white,
+        child: ClipOval(
+          child: Image.asset('images/profile.png'),
+        ),
+      ),
     );
   }
 }
