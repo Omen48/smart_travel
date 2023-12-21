@@ -45,18 +45,35 @@ class _MainscreenState extends State<Mainscreen> {
         child: currentScreen[_selectedScreen],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         currentIndex: _selectedScreen,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_filled),
+            icon: Icon(
+              Icons.home_outlined,
+              size: 36,
+            ),
+            activeIcon: Icon(
+              Icons.home,
+              size: 36,
+            ),
             label: 'Места',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.map_rounded),
+            icon: Icon(
+              Icons.map_outlined,
+              size: 36,
+            ),
+            activeIcon: Icon(Icons.map_rounded,size: 36),
             label: 'Карта',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(
+              Icons.person_outline,
+              size: 36,
+            ),
+            activeIcon: Icon(Icons.person_rounded,size: 36,),
             label: 'Обо мне',
           ),
         ],

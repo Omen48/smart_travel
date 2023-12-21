@@ -7,3 +7,7 @@ abstract class MainTheme {
 abstract class TestTheme {
   static const testThemeColor = Colors.white;
 }
+
+abstract class SecondMainTheme {
+  static const secondMainThemeColor = Color.fromRGBO(29, 55, 71, 1);
+}
