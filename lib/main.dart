@@ -2,6 +2,7 @@ import 'package:auth_study/screens.dart/loadscreen.dart';
 import 'package:auth_study/screens.dart/main_screen.dart';
 import 'package:auth_study/screens.dart/open_screen.dart';
 import 'package:auth_study/screens.dart/register_screen.dart';
+import 'package:auth_study/screens.dart/search_screen.dart';
 import 'package:auth_study/values/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -19,14 +20,15 @@ class MyApp extends StatelessWidget {
         '/auth': (context) => const OpenScreen(),
         '/mainsreen': (context) => const Mainscreen(),
         '/startscreen':(context) => const StartScreen(),
-        '/registerscreen':(context) => const RegisterScreen()
+        '/registerscreen':(context) => const RegisterScreen(),
+        '/searchscreen':(context)=> const SearchScreen()
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme:
             ColorScheme.fromSeed(seedColor: const Color.fromRGBO(3, 37, 65, 1)),
         appBarTheme: const AppBarTheme(
-          backgroundColor: MainTheme.mainThemeColor,
+          backgroundColor: Colors.white,
         ),
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           backgroundColor: Colors.white,

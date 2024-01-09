@@ -65,6 +65,12 @@ flutter:
     - images/gosuslugi_logo.png
     - images/map.png
     - images/profile.png
+    - images/main_logo.png
+    - images/worship1.png
+    - images/worship2.png
+    - icons/clear.png
+    - icons/heart.png
+    - icons/heart_filled.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

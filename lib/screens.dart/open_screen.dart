@@ -1,3 +1,4 @@
+import 'package:auth_study/values/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -6,20 +7,9 @@ class OpenScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Center(
-          child: Text(
-            'Smart Travel',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 30,
-            ),
-          ),
-        ),
-      ),
-      body: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+    return const Scaffold(
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 40),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -43,9 +33,16 @@ class TopOfPAge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        Text('Добро пожаловать', style: textstyle),
+        const SizedBox(
+          height: 30,
+        ),
+        SizedBox(
+          height: 51,
+          width: 51,
+          child: Image.asset('images/main_logo.png'),
+        ),
       ],
     );
   }
@@ -129,17 +126,21 @@ class _MiddleOfPAgeState extends State<MiddleOfPage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            ElevatedButton(onPressed: auth, child: const Text('Войти'),),
-            if (_errorText != null)...
-            [TextButton(
-              onPressed: () {},
-              child: const Text(
-                'Забыли пароль?',
-                style: TextStyle(
-                  fontSize: 10,
+            ElevatedButton(
+              onPressed: auth,
+              child: const Text('Войти'),
+            ),
+            if (_errorText != null) ...[
+              TextButton(
+                onPressed: () {},
+                child: const Text(
+                  'Забыли пароль?',
+                  style: TextStyle(
+                    fontSize: 10,
+                  ),
                 ),
               ),
-            ),],
+            ],
             TextButton(
               onPressed: () {
                 Navigator.of(context).pushNamed('/registerscreen');
@@ -156,49 +157,15 @@ class _MiddleOfPAgeState extends State<MiddleOfPage> {
   }
 }
 
-class BottomOfPage extends StatefulWidget {
+class BottomOfPage extends StatelessWidget {
   const BottomOfPage({super.key});
 
   @override
-  State<BottomOfPage> createState() => _BottomOfPageState();
-}
-
-class _BottomOfPageState extends State<BottomOfPage> {
-  @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-              width: 70,
-              height: 70,
-              child: IconButton(
-                onPressed: () {},
-                icon: Image.asset(
-                  "images/apple_logo.png",
-                ),
-              ),
-            ),
-            SizedBox(
-              width: 70,
-              height: 70,
-              child: IconButton(
-                  onPressed: () {},
-                  icon: Image.asset("images/gosuslugi_logo.png")),
-            ),
-            SizedBox(
-              width: 70,
-              height: 70,
-              child: IconButton(
-                onPressed: () {},
-                icon: Image.asset("images/google_logo.png"),
-              ),
-            ),
-          ],
-        ),
-      ],
+    return const Text(
+      'SmartTravel',
+      style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900,letterSpacing: 0.8, color:SecondMainTheme.secondMainThemeColor ),
+      
     );
   }
 }

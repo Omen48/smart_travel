@@ -1,3 +1,4 @@
+import 'package:auth_study/widgets/place.dart';
 import 'package:flutter/material.dart';
 
 class PlacesScreen extends StatefulWidget {
@@ -11,50 +12,51 @@ class _PlacesScreenState extends State<PlacesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: TextField(
-              decoration: InputDecoration(
-                labelText: 'Поиск',
-                border: OutlineInputBorder(),
-                suffixIcon: Icon(Icons.search),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal:20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(
+              height: 40,
+            ),
+            const Text(
+              'СОВЕТУЕМ ПОСЕТИТЬ В',
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w900,
+                fontStyle: FontStyle.normal,
+                letterSpacing: 0.26,
+                // fontFamily:  
+                // fontFamily:AutofillHints.telephoneNumberExtension
               ),
             ),
-          ),
-          Expanded(
-            child: ListView(
-              children: List.generate(
-                20,
-                (index) {
-                  return Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            color: Colors.grey,
-                            height: 200,
-                            width: 200,
-                            child: const Placeholder(),
-                          ),
-                          Container(
-                            color: Colors.grey,
-                            height: 200,
-                            width: 200,
-                            child: const Placeholder(),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 30),
-                    ],
-                  );
-                },
+            const SizedBox(
+              height: 35,
+            ),
+            Expanded(
+              child: ListView(
+                children: List.generate(
+                  20,
+                  (index) {
+                    return const Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Place(),
+                            Place(),
+                          ],
+                        ),
+                        SizedBox(height: 30),
+                      ],
+                    );
+                  },
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
