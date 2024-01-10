@@ -2,7 +2,7 @@ import 'package:auth_study/screens.dart/map_screen.dart';
 import 'package:auth_study/screens.dart/places_screen.dart';
 
 import 'package:auth_study/screens.dart/user_screen.dart';
-import 'package:auth_study/values/colors.dart';
+// import 'package:auth_study/values/colors.dart';
 import 'package:flutter/material.dart';
 
 class Mainscreen extends StatefulWidget {
@@ -15,7 +15,7 @@ class Mainscreen extends StatefulWidget {
 class _MainscreenState extends State<Mainscreen> {
   int _selectedScreen = 0;
 
-  List<Widget> currentScreen = const <Widget>[
+  List<Widget> currentScreen =  <Widget>[
     PlacesScreen(),
     MapScreen(),
     UserInfoScreen()
@@ -33,47 +33,6 @@ class _MainscreenState extends State<Mainscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            const DrawerHeader(
-              decoration:
-                  BoxDecoration(color: SecondMainTheme.secondMainThemeColor),
-              child: Text('SmartTravel'),
-            ),
-            ListTile(
-              title: const Text('TestItem1'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Test'),
-              onTap: () {},
-            )
-          ],
-        ),
-      ),
-      appBar: AppBar(
-        title: Center(
-          child: SizedBox(
-            height: 25,
-            width: 25,
-            child: Image.asset('images/main_logo.png'),
-          ),
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {
-              // setState(() {
-              //   isSearchVisible = true;
-              // })
-              Navigator.of(context).pushNamed('/searchscreen');
-            },
-          ),
-        ],
-      ),
       body: Center(
         child: currentScreen[_selectedScreen],
       ),

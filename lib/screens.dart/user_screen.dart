@@ -1,34 +1,41 @@
+import 'package:auth_study/values/colors.dart';
+import 'package:auth_study/widgets/places.dart';
+import 'package:auth_study/widgets/settings.dart';
 import 'package:flutter/material.dart';
 
-class UserInfoScreen extends StatelessWidget {
-  static const List<MenuRowData> firstMenuRow = [
-    MenuRowData(Icons.favorite, '1 строчка'),
-    MenuRowData(Icons.call, '2 строчка'),
-    MenuRowData(Icons.computer, '3 строчка'),
-    MenuRowData(Icons.wysiwyg, '4 строчка'),
-  ];
-  static const List<MenuRowData> seconMenuRow = [
-    MenuRowData(Icons.notification_add, '5 строчка'),
-    MenuRowData(Icons.privacy_tip, '6 строчка'),
-    MenuRowData(Icons.data_usage, '7 строчка'),
-    MenuRowData(Icons.brush, '8 строчка'),
-    MenuRowData(Icons.language, '9 строчка'),
-    MenuRowData(Icons.wysiwyg, '10 строчка'),
-  ];
-  static const List<MenuRowData> thirdMenuRow = [
-    MenuRowData(Icons.notification_add, '11 строчка'),
-    MenuRowData(Icons.privacy_tip, '12 строчка'),
-    MenuRowData(Icons.data_usage, '13 строчка'),
-    MenuRowData(Icons.brush, '14 строчка'),
-    MenuRowData(Icons.language, '15 строчка'),
-    MenuRowData(Icons.wysiwyg, '16 строчка'),
-  ];
+class UserInfoScreen extends StatefulWidget {
   const UserInfoScreen({super.key});
 
   @override
+  State<UserInfoScreen> createState() => _UserInfoScreenState();
+}
+
+class _UserInfoScreenState extends State<UserInfoScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKeyUser = GlobalKey<ScaffoldState>();
+  // const UserInfoScreen({super.key});
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      key: _scaffoldKeyUser,
+      appBar: AppBar(
+        title: Center(
+          child: SizedBox(
+            height: 25,
+            width: 25,
+            child: Image.asset('images/main_logo.png'),
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: Image.asset('icons/settings.png'),
+            onPressed: () {
+              _scaffoldKeyUser.currentState!.openEndDrawer();
+            },
+          ),
+        ],
+      ),
+      endDrawer: const SettingsUser(),
+      backgroundColor: Colors.white,
       body: SizedBox(
         width: double.infinity,
         child: ListView(
@@ -36,17 +43,9 @@ class UserInfoScreen extends StatelessWidget {
           children: const [
             UserInfo(),
             SizedBox(
-              height: 30,
+              height: 10,
             ),
-            Menu(menuRow: firstMenuRow),
-            SizedBox(
-              height: 30,
-            ),
-            Menu(menuRow: seconMenuRow),
-            SizedBox(
-              height: 30,
-            ),
-            Menu(menuRow: thirdMenuRow),
+            Favourite(),
           ],
         ),
       ),
@@ -54,49 +53,42 @@ class UserInfoScreen extends StatelessWidget {
   }
 }
 
-class MenuRowData {
-  final IconData icon;
-  final String text;
-
-  const MenuRowData(this.icon, this.text);
-}
-
-class Menu extends StatelessWidget {
-  final List<MenuRowData> menuRow;
-  const Menu({super.key, required this.menuRow});
+class Favourite extends StatefulWidget {
+  const Favourite({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      color: Colors.white,
-      child: Column(
-        children: menuRow.map((data) => MenuWidgetRow(data: data)).toList(),
-      ),
-    );
-  }
+  State<Favourite> createState() => FavouriteState();
 }
 
-class MenuWidgetRow extends StatelessWidget {
-  final MenuRowData data;
-
-  const MenuWidgetRow({
-    super.key,
-    required this.data,
-  });
-
+class FavouriteState extends State<Favourite> {
+  final favouriteStyle = const TextStyle(
+    color: SecondMainTheme.secondMainThemeColor,
+    fontStyle: FontStyle.normal,
+    fontWeight: FontWeight.w600,
+    fontSize: 15,
+  );
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-      child: Row(
-        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        mainAxisSize: MainAxisSize.max,
+      padding: const EdgeInsets.symmetric(horizontal: 15),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(data.icon),
-          const SizedBox(width: 15),
-          Expanded(child: Text(data.text)),
-          const Icon(Icons.chevron_right),
+          Text(
+            'Все, что тебе понравилось \nза последнее время',
+            style: favouriteStyle,
+          ),
+          const SizedBox(height: 24),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Place(
+                imageAsset: 'images/worship1.png',
+                placeName: 'Бурдж-Халифа',
+              ),
+            ],
+          ),
+          const SizedBox(height: 30),
         ],
       ),
     );
@@ -111,65 +103,34 @@ class UserInfo extends StatelessWidget {
     return Container(
       width: double.infinity,
       color: Colors.white,
-      child: const Stack(
-        children: [
-          Center(
-            child: Column(
-              children: [
-                SizedBox(height: 20),
-                Photo(),
-                SizedBox(height: 8),
-                Name(),
-                SizedBox(height: 8),
-                PhoneNum(),
-                SizedBox(height: 8),
-                Nickname(),
-              ],
-            ),
-          ),
-          Positioned(
-            top: 10,
-            right: 10,
-            child: Text(
-              'Изм.',
-              style: TextStyle(
-                color: Colors.blue,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-          ),
-        ],
+      child: const Center(
+        child: Column(
+          children: [
+            SizedBox(height: 20),
+            Photo(),
+            SizedBox(height: 27),
+            Greetings(),
+          ],
+        ),
       ),
     );
   }
 }
 
-class Nickname extends StatelessWidget {
-  const Nickname({
+class Greetings extends StatelessWidget {
+  const Greetings({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return const Text(
-      '@isblinov',
-      style: TextStyle(fontSize: 15),
-    );
-  }
-}
-
-class PhoneNum extends StatelessWidget {
-  const PhoneNum({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const Text(
-      '+7-999-216-90-88',
+      'Привет, Ваня!',
       style: TextStyle(
-        fontSize: 20,
-      ),
+          fontSize: 20,
+          fontFamily: AutofillHints.addressCity,
+          fontWeight: FontWeight.w800,
+          color: Color(0xFF1D3747)),
     );
   }
 }
@@ -182,31 +143,13 @@ class Photo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 150,
-      height: 100,
+      width: 105,
+      height: 105,
       child: CircleAvatar(
         backgroundColor: Colors.white,
         child: ClipOval(
           child: Image.asset('images/profile.png'),
         ),
-      ),
-    );
-  }
-}
-
-class Name extends StatelessWidget {
-  const Name({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const Text(
-      'Иван Блинов',
-      style: TextStyle(
-        color: Colors.black,
-        fontWeight: FontWeight.w700,
-        fontSize: 25,
       ),
     );
   }

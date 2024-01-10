@@ -1,4 +1,4 @@
-import 'package:auth_study/widgets/place.dart';
+import 'package:auth_study/widgets/places.dart';
 import 'package:flutter/material.dart';
 import 'package:auth_study/values/colors.dart';
 
@@ -21,12 +21,12 @@ class _SearchScreenState extends State<SearchScreen> {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: const Icon(Icons.arrow_back),
+          icon: Image.asset('icons/back.png'),
         ),
       ),
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal:20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -52,30 +52,21 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
             ),
             Expanded(
-              child: ListView(
-                children: List.generate(
-                  20,
-                  (index) {
-                    return Column(
-                      children: [
-                        Container(
-                          color: Colors.white70,
-                          child: const Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                             Place(),
-                             Place(),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                      ],
-                    );
-                  },
+              child: ListView(children: const [
+                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Place(
+                      imageAsset: 'images/worship1.png',
+                      placeName: 'Бурдж-Халифа',
+                    ),
+                    Place(
+                      imageAsset: 'images/worship2.png',
+                      placeName: 'Небоскреб',
+                    ),
+                  ],
                 ),
-              ),
+              ]),
             )
           ],
         ),

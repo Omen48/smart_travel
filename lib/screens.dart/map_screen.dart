@@ -10,6 +10,26 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: SizedBox(child: Image.asset('images/map.png')),);
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(
+          child: SizedBox(
+            height: 25,
+            width: 25,
+            child: Image.asset('images/main_logo.png'),
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: Image.asset('icons/search.png'),
+            onPressed: () {
+            },
+          ),
+        ],
+      ),
+      body: SizedBox(
+        child: Image.asset('images/map.png'),
+      ),
+    );
   }
 }
