@@ -1,7 +1,7 @@
-import 'package:auth_study/screens.dart/map_screen.dart';
-import 'package:auth_study/screens.dart/places_screen.dart';
+import 'package:auth_study/presentation/screens.dart/map_screen.dart';
+import 'package:auth_study/presentation/screens.dart/places_screen.dart';
 
-import 'package:auth_study/screens.dart/user_screen.dart';
+import 'package:auth_study/presentation/screens.dart/user_screen.dart';
 // import 'package:auth_study/values/colors.dart';
 import 'package:flutter/material.dart';
 

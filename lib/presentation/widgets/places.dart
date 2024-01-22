@@ -1,5 +1,5 @@
-import 'package:auth_study/values/colors.dart';
-import 'package:auth_study/widgets/icons.dart';
+import 'package:auth_study/presentation/values/colors.dart';
+import 'package:auth_study/presentation/widgets/icons.dart';
 import 'package:flutter/material.dart';
 
 class Place extends StatefulWidget {

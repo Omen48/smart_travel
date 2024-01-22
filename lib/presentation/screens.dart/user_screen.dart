@@ -1,6 +1,6 @@
-import 'package:auth_study/values/colors.dart';
-import 'package:auth_study/widgets/places.dart';
-import 'package:auth_study/widgets/settings.dart';
+import 'package:auth_study/presentation/values/colors.dart';
+import 'package:auth_study/presentation/widgets/places.dart';
+import 'package:auth_study/presentation/widgets/settings.dart';
 import 'package:flutter/material.dart';
 
 class UserInfoScreen extends StatefulWidget {
@@ -118,6 +118,7 @@ class UserInfo extends StatelessWidget {
 }
 
 class Greetings extends StatelessWidget {
+  
   const Greetings({
     super.key,
   });

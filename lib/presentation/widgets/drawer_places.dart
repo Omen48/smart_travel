@@ -1,4 +1,4 @@
-import 'package:auth_study/values/colors.dart';
+import 'package:auth_study/presentation/values/colors.dart';
 import 'package:flutter/material.dart';
 
 class DrawerPlaces extends StatefulWidget {

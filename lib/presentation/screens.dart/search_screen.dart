@@ -1,6 +1,6 @@
-import 'package:auth_study/widgets/places.dart';
+import 'package:auth_study/presentation/widgets/places.dart';
 import 'package:flutter/material.dart';
-import 'package:auth_study/values/colors.dart';
+import 'package:auth_study/presentation/values/colors.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -10,11 +10,11 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  static const textfield1 = InputDecoration(
-    border: OutlineInputBorder(),
-    contentPadding: EdgeInsets.symmetric(horizontal: 11, vertical: 8),
-    isCollapsed: true,
-  );
+  // static const textfield1 = InputDecoration(
+  //   border: OutlineInputBorder(),
+  //   contentPadding: EdgeInsets.symmetric(horizontal: 11, vertical: 8),
+  //   isCollapsed: true,
+  // );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,15 +30,23 @@ class _SearchScreenState extends State<SearchScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            const Padding(
-              padding: EdgeInsets.all(8.0),
+              Padding(
+              padding: const EdgeInsets.all(8.0),
               child: TextField(
-                decoration: textfield1,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20)
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 11, vertical: 8),
+                  prefixIcon: const Icon(Icons.search),
+                  fillColor: ThirdMainTheme.thirdMainTheme,
+                  filled: true,
               ),
             ),
             // const SizedBox(
             //   height: 35,
             // ),
+             ),
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 5.0),
               child: Text(
@@ -53,7 +61,7 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
             Expanded(
               child: ListView(children: const [
-                 Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Place(
