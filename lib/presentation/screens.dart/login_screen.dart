@@ -1,6 +1,7 @@
 import 'package:auth_study/presentation/values/colors.dart';
+import 'package:auth_study/presentation/widgets/buttons.dart';
+import 'package:auth_study/presentation/widgets/login_register_textfield.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class OpenScreen extends StatelessWidget {
   const OpenScreen({super.key});
@@ -25,36 +26,6 @@ class OpenScreen extends StatelessWidget {
     );
   }
 }
-
-// class OpenScreen extends StatelessWidget {
-//   const OpenScreen({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     // Определение, открыта ли клавиатура
-//     final bool isKeyboardOpen = MediaQuery.of(context).viewInsets.bottom != 0;
-//     final double space = isKeyboardOpen ? 10 : 30; // Меньше пространства, если клавиатура открыта
-
-//     return Scaffold(
-//       body: SingleChildScrollView( // Использование SingleChildScrollView
-//         child: Padding(
-//           padding: EdgeInsets.symmetric(horizontal: 40),
-//           child: Column(
-//             children: [
-//               // Использование Container для сохранения пространства вокруг
-//               SmartTravelLogo(),
-//               Container(height: isKeyboardOpen ? 20 : 120), // Высота изменяется в зависимости от состояния клавиатуры
-//               LoginForm(),
-//               SizedBox(height: space),
-//               BottomOfPage(),
-//               Container(height: isKeyboardOpen ? 20 : 120), // Высота изменяется в зависимости от состояния клавиатуры
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
 
 class SmartTravelLogo extends StatelessWidget {
   static const textstyle = TextStyle(
@@ -89,6 +60,10 @@ class LogRegForm extends StatefulWidget {
 }
 
 class _LogRegState extends State<LogRegForm> {
+  static const textstyle1 = TextStyle(
+      fontSize: 12,
+      fontWeight: FontWeight.w800,
+      color: SecondMainTheme.secondMainThemeColor);
   int _selectedWidget = 0;
   @override
   Widget build(BuildContext context) {
@@ -98,15 +73,15 @@ class _LogRegState extends State<LogRegForm> {
           children: [
             ElevatedButton(
               autofocus: true,
-
               onPressed: () {
                 setState(() {
                   _selectedWidget = 0;
                 });
               },
               style: ButtonStyle(
-                backgroundColor:
-                    MaterialStateProperty.all(_selectedWidget ==0?  ThirdMainTheme.thirdMainTheme: Colors.grey),
+                backgroundColor: MaterialStateProperty.all(_selectedWidget == 0
+                    ? ThirdMainTheme.thirdMainTheme
+                    : Colors.grey),
                 padding: const MaterialStatePropertyAll(
                   EdgeInsets.only(left: 40, right: 39, top: 8, bottom: 42),
                 ),
@@ -125,7 +100,9 @@ class _LogRegState extends State<LogRegForm> {
                 );
               },
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(_selectedWidget ==0?Colors.grey :ThirdMainTheme.thirdMainTheme ),
+                backgroundColor: MaterialStateProperty.all(_selectedWidget == 0
+                    ? Colors.grey
+                    : ThirdMainTheme.thirdMainTheme),
                 padding: const MaterialStatePropertyAll(
                   EdgeInsets.only(left: 40, right: 30, top: 8, bottom: 42),
                 ),
@@ -137,8 +114,8 @@ class _LogRegState extends State<LogRegForm> {
             ),
           ],
         ),
-        if (_selectedWidget == 0) LoginForm(),
-        if (_selectedWidget == 1) RegForm(),
+        if (_selectedWidget == 0) const LoginForm(),
+        if (_selectedWidget == 1) const RegForm(),
       ],
     );
   }
@@ -199,90 +176,39 @@ class _LoginFormState extends State<LoginForm> {
           borderRadius: BorderRadius.circular(20),
           color: ThirdMainTheme.thirdMainTheme,
         ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 35.0),
-          child: Column(
-            children: [
+        child: Column(
+          children: [
+            MyTextField(
+              controller: _logincontroller,
+              hintText: 'Email или пароль',
+              obscureText: false,
+              paddingvalue: 43,
+            ),
+            MyTextField(
+              controller: _passcontroller,
+              hintText: 'Пароль',
+              obscureText: true,
+              paddingvalue: 25,
+            ),
+            if (_errorText != null) ...[
+              const SizedBox(height: 11),
+              Text(
+                '$_errorText',
+                style: const TextStyle(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 12,
+                  color: Color.fromRGBO(1, 1, 1, 1),
+                ),
+              ),
               const SizedBox(
-                height: 43,
+                height: 10,
               ),
-              TextField(
-                controller: _logincontroller,
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(
-                    RegExp("[а-яА-Яa-zA-Z0-9]"),
-                  ),
-                ],
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 11.0, vertical: 9.0),
-                  isCollapsed: true,
-                  filled: true,
-                  constraints:
-                      const BoxConstraints(maxHeight: 24, maxWidth: 240),
-                  fillColor: Colors.white,
-                  hintText: 'Email или телефон',
-                  hintStyle: const TextStyle(
-                      fontSize: 12, fontWeight: FontWeight.w300),
-                  suffixIcon: Image.asset('icons/pensil.png'),
-                ),
-              ),
-              const SizedBox(height: 25),
-              TextField(
-                controller: _passcontroller,
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(
-                      RegExp("[а-яА-Яa-zA-Z0-9]")),
-                ],
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 11, vertical: 9),
-                  isCollapsed: true,
-                  filled: true,
-                  constraints:
-                      const BoxConstraints(maxHeight: 24, maxWidth: 240),
-                  fillColor: Colors.white,
-                  hintText: 'Пароль',
-                  hintStyle: const TextStyle(
-                      fontSize: 12, fontWeight: FontWeight.w300),
-                  suffixIcon: Image.asset('icons/pensil.png'),
-                ),
-                obscureText: true,
-              ),
-              if (_errorText != null) ...[
-                const SizedBox(height: 11),
-                Text(
-                  '$_errorText',
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w300,
-                    fontSize: 12,
-                    color: Color.fromRGBO(1, 1, 1, 1),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-              ] else ...[
-                const SizedBox(height: 38)
-              ],
-              ElevatedButton(
-                onPressed: auth,
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all(ButtonColor.buttonTheme),
-                  padding: const MaterialStatePropertyAll(
-                    EdgeInsets.symmetric(horizontal: 31, vertical: 8),
-                  ),
-                ),
-                child: const Text(
-                  'Войти',
-                  style: textstyle1,
-                ),
-              ),
+            ] else ...[
+              const SizedBox(height: 38),],
+              MyButton(
+                  onPressed: auth,
+                  textstyle: textstyle1,
+                  buttoncolor: ButtonColor.buttonTheme),
               if (_errorText != null) ...[
                 TextButton(
                   onPressed: () {},
@@ -293,7 +219,7 @@ class _LoginFormState extends State<LoginForm> {
                 ),
               ]
             ],
-          ),
+          
         ),
       ),
     );
@@ -308,6 +234,11 @@ class RegForm extends StatefulWidget {
 }
 
 class _RegFormState extends State<RegForm> {
+  static const textstyle1 = TextStyle(
+      fontSize: 12,
+      fontWeight: FontWeight.w800,
+      color: SecondMainTheme.secondMainThemeColor);
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -317,7 +248,42 @@ class _RegFormState extends State<RegForm> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: ThirdMainTheme.thirdMainTheme,
-        ),)
+        ),
+        child: Column(
+          children: [
+            const MyTextField(
+              obscureText: false,
+              hintText: 'Имя',
+              paddingvalue: 35,
+            ),
+            const MyTextField(
+              obscureText: false,
+              hintText: 'Фамилия',
+              paddingvalue: 25,
+            ),
+            const MyTextField(
+              obscureText: false,
+              hintText: 'Email',
+              paddingvalue: 25,
+            ),
+            const MyTextField(
+              obscureText: true,
+              hintText: 'Пароль',
+              paddingvalue: 25,
+            ),
+            const MyTextField(
+              obscureText: true,
+              hintText: 'Подтвердите пароль',
+              paddingvalue: 25,
+            ),
+            const SizedBox(height: 33),
+            MyButton(
+                onPressed: () {},
+                textstyle: textstyle1,
+                buttoncolor: ButtonColor.buttonTheme)
+          ],
+        ),
+      ),
     );
   }
 }
