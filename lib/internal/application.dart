@@ -2,7 +2,7 @@ import 'package:auth_study/presentation/values/colors.dart';
 import 'package:auth_study/presentation/screens.dart/loadscreen.dart';
 import 'package:auth_study/presentation/screens.dart/main_screen.dart';
 import 'package:auth_study/presentation/screens.dart/login_screen.dart';
-import 'package:auth_study/presentation/screens.dart/register_screen.dart';
+import 'package:auth_study/presentation/screens.dart/recover_screen.dart';
 import 'package:auth_study/presentation/screens.dart/search_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         '/auth': (context) => const OpenScreen(),
         '/mainsreen': (context) => const Mainscreen(),
         '/startscreen':(context) => const StartScreen(),
-        '/registerscreen':(context) => const RegisterScreen(),
+        '/registerscreen':(context) => const RecoverScreen(),
         '/searchscreen':(context)=> const SearchScreen()
       },
       debugShowCheckedModeBanner: false,

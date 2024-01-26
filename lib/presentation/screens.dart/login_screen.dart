@@ -1,6 +1,6 @@
 import 'package:auth_study/presentation/values/colors.dart';
 import 'package:auth_study/presentation/widgets/buttons.dart';
-import 'package:auth_study/presentation/widgets/login_register_textfield.dart';
+import 'package:auth_study/presentation/widgets/my_textfields.dart';
 import 'package:flutter/material.dart';
 
 class OpenScreen extends StatelessWidget {
@@ -12,15 +12,13 @@ class OpenScreen extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 40),
-        child: Expanded(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              SmartTravelLogo(),
-              LogRegForm(),
-              BottomOfPage(),
-            ],
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            SmartTravelLogo(),
+            LogRegForm(),
+            BottomOfPage(),
+          ],
         ),
       ),
     );
@@ -34,7 +32,6 @@ class SmartTravelLogo extends StatelessWidget {
     color: Colors.black,
   );
   const SmartTravelLogo({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -60,10 +57,6 @@ class LogRegForm extends StatefulWidget {
 }
 
 class _LogRegState extends State<LogRegForm> {
-  static const textstyle1 = TextStyle(
-      fontSize: 12,
-      fontWeight: FontWeight.w800,
-      color: SecondMainTheme.secondMainThemeColor);
   int _selectedWidget = 0;
   @override
   Widget build(BuildContext context) {
@@ -147,9 +140,9 @@ class LoginForm extends StatefulWidget {
 class _LoginFormState extends State<LoginForm> {
   String? _errorText;
 
-  final _logincontroller = TextEditingController();
+  final _logincontroller = TextEditingController(text: 'admin');
 
-  final _passcontroller = TextEditingController();
+  final _passcontroller = TextEditingController(text: 'admin');
 
   void auth() {
     if (_logincontroller.text == 'admin' && _passcontroller.text == 'admin') {
@@ -178,13 +171,13 @@ class _LoginFormState extends State<LoginForm> {
         ),
         child: Column(
           children: [
-            MyTextField(
+            LoginRegisterTextField(
               controller: _logincontroller,
               hintText: 'Email или пароль',
               obscureText: false,
               paddingvalue: 43,
             ),
-            MyTextField(
+            LoginRegisterTextField(
               controller: _passcontroller,
               hintText: 'Пароль',
               obscureText: true,
@@ -204,22 +197,22 @@ class _LoginFormState extends State<LoginForm> {
                 height: 10,
               ),
             ] else ...[
-              const SizedBox(height: 38),],
-              MyButton(
-                  onPressed: auth,
-                  textstyle: textstyle1,
-                  buttoncolor: ButtonColor.buttonTheme),
-              if (_errorText != null) ...[
-                TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Забыли пароль?',
-                    style: TextStyle(fontSize: 11, fontWeight: FontWeight.w200),
-                  ),
-                ),
-              ]
+              const SizedBox(height: 38),
             ],
-          
+            MyButton(
+                onPressed: auth,
+                textstyle: textstyle1,
+                buttoncolor: ButtonColor.buttonTheme),
+            if (_errorText != null) ...[
+              TextButton(
+                onPressed: () {},
+                child: const Text(
+                  'Забыли пароль?',
+                  style: TextStyle(fontSize: 11, fontWeight: FontWeight.w200),
+                ),
+              ),
+            ]
+          ],
         ),
       ),
     );
@@ -251,27 +244,27 @@ class _RegFormState extends State<RegForm> {
         ),
         child: Column(
           children: [
-            const MyTextField(
+            const LoginRegisterTextField(
               obscureText: false,
               hintText: 'Имя',
               paddingvalue: 35,
             ),
-            const MyTextField(
+            const LoginRegisterTextField(
               obscureText: false,
               hintText: 'Фамилия',
               paddingvalue: 25,
             ),
-            const MyTextField(
+            const LoginRegisterTextField(
               obscureText: false,
               hintText: 'Email',
               paddingvalue: 25,
             ),
-            const MyTextField(
+            const LoginRegisterTextField(
               obscureText: true,
               hintText: 'Пароль',
               paddingvalue: 25,
             ),
-            const MyTextField(
+            const LoginRegisterTextField(
               obscureText: true,
               hintText: 'Подтвердите пароль',
               paddingvalue: 25,

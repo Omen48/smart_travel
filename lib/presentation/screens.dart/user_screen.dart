@@ -1,7 +1,9 @@
+import 'package:auth_study/presentation/screens.dart/places_screen.dart';
 import 'package:auth_study/presentation/values/colors.dart';
 import 'package:auth_study/presentation/widgets/places.dart';
 import 'package:auth_study/presentation/widgets/settings.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class UserInfoScreen extends StatefulWidget {
   const UserInfoScreen({super.key});
@@ -11,12 +13,11 @@ class UserInfoScreen extends StatefulWidget {
 }
 
 class _UserInfoScreenState extends State<UserInfoScreen> {
-  final GlobalKey<ScaffoldState> _scaffoldKeyUser = GlobalKey<ScaffoldState>();
   // const UserInfoScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKeyUser,
+      key: scaffoldKey,
       appBar: AppBar(
         title: Center(
           child: SizedBox(
@@ -29,18 +30,16 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
           IconButton(
             icon: Image.asset('icons/settings.png'),
             onPressed: () {
-              _scaffoldKeyUser.currentState!.openEndDrawer();
+              scaffoldKey.currentState!.openEndDrawer();
             },
           ),
         ],
       ),
       endDrawer: const SettingsUser(),
       backgroundColor: Colors.white,
-      body: SizedBox(
-        width: double.infinity,
-        child: ListView(
-          // physics: const BouncingScrollPhysics(),
-          children: const [
+      body: const SingleChildScrollView(
+        child: Column(
+          children: [
             UserInfo(),
             SizedBox(
               height: 10,
@@ -69,28 +68,18 @@ class FavouriteState extends State<Favourite> {
   );
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Text(
             'Все, что тебе понравилось \nза последнее время',
             style: favouriteStyle,
           ),
-          const SizedBox(height: 24),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Place(
-                imageAsset: 'images/worship1.png',
-                placeName: 'Бурдж-Халифа',
-              ),
-            ],
-          ),
-          const SizedBox(height: 30),
-        ],
-      ),
+        ),
+        FavouriteList()
+      ],
     );
   }
 }
@@ -118,7 +107,6 @@ class UserInfo extends StatelessWidget {
 }
 
 class Greetings extends StatelessWidget {
-  
   const Greetings({
     super.key,
   });
@@ -153,5 +141,35 @@ class Photo extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+
+
+class FavouriteList extends StatelessWidget {
+  FavouriteList({super.key});
+
+  final List<PlaceData> favList = [
+    const PlaceData(imageAsset: 'images/worship3.png', placeName: 'Тауэрский мост'),
+    const PlaceData(imageAsset: 'images/worship3.png', placeName: 'Тауэрский мост')
+
+
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return MasonryGridView.builder(
+      // padding: const EdgeInsets.symmetric(horizontal: 15), // Отступы по краям
+      gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2),
+      itemCount: favList.length,
+      itemBuilder: (context, index) {
+        return Center(
+          child: Place(
+            imageAsset: favList[index].imageAsset,
+            placeName: favList[index].placeName,
+          ),
+        );
+      },);
   }
 }

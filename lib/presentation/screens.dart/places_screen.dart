@@ -4,25 +4,24 @@ import 'package:auth_study/presentation/widgets/drawer_places.dart';
 import 'package:auth_study/presentation/widgets/places.dart';
 import 'package:flutter/material.dart';
 
+final scaffoldKey = GlobalKey<ScaffoldState>();
+
 class PlacesScreen extends StatefulWidget {
-  // const PlacesScreen({super.key});
-  
+  const PlacesScreen({super.key});
 
   @override
   State<PlacesScreen> createState() => _PlacesScreenState();
 }
 
 class _PlacesScreenState extends State<PlacesScreen> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
+      key: scaffoldKey,
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            _scaffoldKey.currentState!.openDrawer();
+            scaffoldKey.currentState?.openDrawer();
           },
           icon: Image.asset('icons/drawer.png'),
         ),
@@ -43,15 +42,13 @@ class _PlacesScreenState extends State<PlacesScreen> {
         ],
       ),
       drawer: const DrawerPlaces(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(
-              height: 40,
-            ),
-            const Text(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.only(
+                left: 15.0, right: 15.0, top: 42.0, bottom: 35.0),
+            child: Text(
               'СОВЕТУЕМ ПОСЕТИТЬ В',
               style: TextStyle(
                 fontSize: 15,
@@ -62,29 +59,9 @@ class _PlacesScreenState extends State<PlacesScreen> {
                 // fontFamily:AutofillHints.telephoneNumberExtension
               ),
             ),
-            const SizedBox(
-              height: 35,
-            ),
-            Expanded(
-              child: ListView(children: const [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Place(
-                      imageAsset: 'images/worship1.png',
-                      placeName: 'Бурдж-Халифа',
-                    ),
-                    Place(
-                      imageAsset: 'images/worship3.png',
-                      placeName: 'Тауэрский-мост',
-                    ),
-                  ],
-                ),
-                SizedBox(height: 30),
-              ]),
-            ),
-          ],
-        ),
+          ),
+          Flexible(child: PlacesList())
+        ],
       ),
     );
   }

@@ -1,5 +1,7 @@
-import 'package:auth_study/presentation/values/colors.dart';
 import 'package:flutter/material.dart';
+
+
+// Форма для кнопки
 
 class MyButton extends StatelessWidget {
   final VoidCallback onPressed;

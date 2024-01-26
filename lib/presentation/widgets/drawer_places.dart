@@ -1,6 +1,10 @@
 import 'package:auth_study/presentation/values/colors.dart';
 import 'package:flutter/material.dart';
 
+
+
+//настройки в поле рекомендаций
+
 class DrawerPlaces extends StatefulWidget {
   const DrawerPlaces({super.key});
 

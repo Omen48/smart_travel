@@ -1,3 +1,4 @@
+import 'package:auth_study/presentation/widgets/my_textfields.dart';
 import 'package:auth_study/presentation/widgets/places.dart';
 import 'package:flutter/material.dart';
 import 'package:auth_study/presentation/values/colors.dart';
@@ -10,11 +11,6 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  // static const textfield1 = InputDecoration(
-  //   border: OutlineInputBorder(),
-  //   contentPadding: EdgeInsets.symmetric(horizontal: 11, vertical: 8),
-  //   isCollapsed: true,
-  // );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,59 +21,24 @@ class _SearchScreenState extends State<SearchScreen> {
         ),
       ),
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-              Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20)
-                  ),
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 11, vertical: 8),
-                  prefixIcon: const Icon(Icons.search),
-                  fillColor: ThirdMainTheme.thirdMainTheme,
-                  filled: true,
+      body:   Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SearchTextField(),
+          const Padding(
+            padding: EdgeInsets.only(left: 15.0, right: 15.0, bottom: 24),
+            child: Text(
+              'Все, что ты искал за последнее время',
+              style: TextStyle(
+                color: SecondMainTheme.secondMainThemeColor,
+                fontStyle: FontStyle.normal,
+                fontWeight: FontWeight.w600,
+                fontSize: 15,
               ),
             ),
-            // const SizedBox(
-            //   height: 35,
-            // ),
-             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 5.0),
-              child: Text(
-                'Все, что ты искал за последнее время',
-                style: TextStyle(
-                  color: SecondMainTheme.secondMainThemeColor,
-                  fontStyle: FontStyle.normal,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 15,
-                ),
-              ),
-            ),
-            Expanded(
-              child: ListView(children: const [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Place(
-                      imageAsset: 'images/worship1.png',
-                      placeName: 'Бурдж-Халифа',
-                    ),
-                    Place(
-                      imageAsset: 'images/worship2.png',
-                      placeName: 'Небоскреб',
-                    ),
-                  ],
-                ),
-              ]),
-            )
-          ],
-        ),
+          ),
+            Flexible(child: SearchPlacesList())
+        ],
       ),
     );
   }

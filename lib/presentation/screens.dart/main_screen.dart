@@ -15,7 +15,7 @@ class Mainscreen extends StatefulWidget {
 class _MainscreenState extends State<Mainscreen> {
   int _selectedScreen = 0;
 
-  List<Widget> currentScreen =  <Widget>[
+  List<Widget> currentScreen = <Widget>[
     PlacesScreen(),
     MapScreen(),
     UserInfoScreen()
@@ -23,9 +23,11 @@ class _MainscreenState extends State<Mainscreen> {
 
   void onSelectedTab(int index) {
     if (_selectedScreen == index) return;
-    setState(() {
-      _selectedScreen = index;
-    });
+    setState(
+      () {
+        _selectedScreen = index;
+      },
+    );
   }
 
   bool isSearchVisible = false;
@@ -50,7 +52,7 @@ class _MainscreenState extends State<Mainscreen> {
               Icons.home,
               size: 36,
             ),
-            label: 'Места',
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -58,7 +60,7 @@ class _MainscreenState extends State<Mainscreen> {
               size: 36,
             ),
             activeIcon: Icon(Icons.map_rounded, size: 36),
-            label: 'Карта',
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -69,7 +71,7 @@ class _MainscreenState extends State<Mainscreen> {
               Icons.person_rounded,
               size: 36,
             ),
-            label: 'Обо мне',
+            label: '',
           ),
         ],
         onTap: onSelectedTab,
