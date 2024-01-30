@@ -1,6 +1,4 @@
-// import 'package:auth_study/values/colors.dart';
 import 'package:auth_study/presentation/widgets/drawer_places.dart';
-// import 'package:auth_study/widgets/icon.dart';
 import 'package:auth_study/presentation/widgets/places.dart';
 import 'package:flutter/material.dart';
 

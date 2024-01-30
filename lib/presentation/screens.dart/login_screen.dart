@@ -205,7 +205,9 @@ class _LoginFormState extends State<LoginForm> {
                 buttoncolor: ButtonColor.buttonTheme),
             if (_errorText != null) ...[
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/registerscreen');
+                },
                 child: const Text(
                   'Забыли пароль?',
                   style: TextStyle(fontSize: 11, fontWeight: FontWeight.w200),
@@ -280,3 +282,4 @@ class _RegFormState extends State<RegForm> {
     );
   }
 }
+

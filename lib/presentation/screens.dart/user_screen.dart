@@ -37,16 +37,14 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
       ),
       endDrawer: const SettingsUser(),
       backgroundColor: Colors.white,
-      body: const SingleChildScrollView(
-        child: Column(
-          children: [
-            UserInfo(),
-            SizedBox(
-              height: 10,
-            ),
-            Favourite(),
-          ],
-        ),
+      body: const Column(
+        children: [
+          UserInfo(),
+          SizedBox(
+            height: 10,
+          ),
+          Expanded (child: Favourite()),
+        ],
       ),
     );
   }
@@ -78,7 +76,7 @@ class FavouriteState extends State<Favourite> {
             style: favouriteStyle,
           ),
         ),
-        FavouriteList()
+        Expanded(child: FavouriteList())
       ],
     );
   }

@@ -58,15 +58,15 @@ class _SettingsUserState extends State<SettingsUser> {
               ),
             ),
           ),
-          Menu(menuRow: SettingsUser.firstMenuRow),
-          SizedBox(
+          const Menu(menuRow: SettingsUser.firstMenuRow),
+          const SizedBox(
             height: 30,
           ),
-          Menu(menuRow: SettingsUser.seconMenuRow),
-          SizedBox(
+          const Menu(menuRow: SettingsUser.seconMenuRow),
+          const SizedBox(
             height: 30,
           ),
-          Menu(menuRow: SettingsUser.thirdMenuRow)
+          const Menu(menuRow: SettingsUser.thirdMenuRow)
         ],
       ),
     );
@@ -109,7 +109,6 @@ class MenuWidgetRow extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
       child: Row(
-        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         mainAxisSize: MainAxisSize.max,
         children: [
           Icon(data.icon),

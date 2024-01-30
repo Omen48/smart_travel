@@ -28,6 +28,26 @@ class PlacesList extends StatelessWidget {
   final List<PlaceData> places = [
     const PlaceData(
         imageAsset: 'images/worship1.png', placeName: 'Бурдж-Халифа'),
+    const PlaceData(
+        imageAsset: 'images/worship2.png', placeName: 'Бурдж-Халифа'),
+    const PlaceData(
+        imageAsset: 'images/worship3.png', placeName: 'Бурдж-Халифа'),
+    const PlaceData(
+        imageAsset: 'images/worship1.png', placeName: 'Бурдж-Халифа'),
+    const PlaceData(
+        imageAsset: 'images/worship2.png', placeName: 'Бурдж-Халифа'),
+    const PlaceData(
+        imageAsset: 'images/worship3.png', placeName: 'Бурдж-Халифа'),
+    const PlaceData(
+        imageAsset: 'images/worship1.png', placeName: 'Бурдж-Халифа'),
+    const PlaceData(
+        imageAsset: 'images/worship2.png', placeName: 'Бурдж-Халифа'),
+    const PlaceData(
+        imageAsset: 'images/worship3.png', placeName: 'Бурдж-Халифа'),
+    const PlaceData(
+        imageAsset: 'images/worship1.png', placeName: 'Бурдж-Халифа'),
+    const PlaceData(
+        imageAsset: 'images/worship2.png', placeName: 'Бурдж-Халифа'),
   ];
 
   @override
