@@ -1,4 +1,4 @@
-import 'package:auth_study/presentation/values/colors.dart';
+import 'package:auth_study/presentation/theme/colors.dart';
 import 'package:auth_study/presentation/widgets/buttons.dart';
 import 'package:auth_study/presentation/widgets/my_textfields.dart';
 import 'package:flutter/material.dart';
@@ -73,7 +73,7 @@ class _LogRegState extends State<LogRegForm> {
               },
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(_selectedWidget == 0
-                    ? ThirdMainTheme.thirdMainTheme
+                    ? AppColors.green
                     : Colors.grey),
                 padding: const MaterialStatePropertyAll(
                   EdgeInsets.only(left: 40, right: 39, top: 8, bottom: 42),
@@ -95,7 +95,7 @@ class _LogRegState extends State<LogRegForm> {
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(_selectedWidget == 0
                     ? Colors.grey
-                    : ThirdMainTheme.thirdMainTheme),
+                    : AppColors.green),
                 padding: const MaterialStatePropertyAll(
                   EdgeInsets.only(left: 40, right: 30, top: 8, bottom: 42),
                 ),
@@ -125,7 +125,7 @@ class BottomOfPage extends StatelessWidget {
           fontSize: 20,
           fontWeight: FontWeight.w900,
           letterSpacing: 0.8,
-          color: SecondMainTheme.secondMainThemeColor),
+          color: AppColors.blue),
     );
   }
 }
@@ -157,7 +157,7 @@ class _LoginFormState extends State<LoginForm> {
   static const textstyle1 = TextStyle(
       fontSize: 12,
       fontWeight: FontWeight.w800,
-      color: SecondMainTheme.secondMainThemeColor);
+      color: AppColors.blue);
 
   @override
   Widget build(BuildContext context) {
@@ -167,7 +167,7 @@ class _LoginFormState extends State<LoginForm> {
       child: DecoratedBox(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: ThirdMainTheme.thirdMainTheme,
+          color: AppColors.green,
         ),
         child: Column(
           children: [
@@ -202,7 +202,7 @@ class _LoginFormState extends State<LoginForm> {
             MyButton(
                 onPressed: auth,
                 textstyle: textstyle1,
-                buttoncolor: ButtonColor.buttonTheme),
+                buttoncolor: AppColors.orange),
             if (_errorText != null) ...[
               TextButton(
                 onPressed: () {
@@ -232,7 +232,7 @@ class _RegFormState extends State<RegForm> {
   static const textstyle1 = TextStyle(
       fontSize: 12,
       fontWeight: FontWeight.w800,
-      color: SecondMainTheme.secondMainThemeColor);
+      color: AppColors.blue);
 
   @override
   Widget build(BuildContext context) {
@@ -242,7 +242,7 @@ class _RegFormState extends State<RegForm> {
       child: DecoratedBox(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: ThirdMainTheme.thirdMainTheme,
+          color: AppColors.green,
         ),
         child: Column(
           children: [
@@ -275,7 +275,7 @@ class _RegFormState extends State<RegForm> {
             MyButton(
                 onPressed: () {},
                 textstyle: textstyle1,
-                buttoncolor: ButtonColor.buttonTheme)
+                buttoncolor: AppColors.orange)
           ],
         ),
       ),

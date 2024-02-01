@@ -1,4 +1,4 @@
-import 'package:auth_study/presentation/values/colors.dart';
+import 'package:auth_study/presentation/theme/colors.dart';
 import 'package:flutter/material.dart';
 
 class SettingsUser extends StatefulWidget {
@@ -32,7 +32,7 @@ class SettingsUser extends StatefulWidget {
 
 class _SettingsUserState extends State<SettingsUser> {
   final settingsStyle = const TextStyle(
-    color: SecondMainTheme.secondMainThemeColor,
+    color: AppColors.blue,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.w600,
     fontSize: 20,

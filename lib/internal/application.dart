@@ -1,4 +1,4 @@
-import 'package:auth_study/presentation/values/colors.dart';
+import 'package:auth_study/presentation/theme/colors.dart';
 import 'package:auth_study/presentation/screens.dart/loadscreen.dart';
 import 'package:auth_study/presentation/screens.dart/main_screen.dart';
 import 'package:auth_study/presentation/screens.dart/login_screen.dart';
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         ),
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           backgroundColor: Colors.white,
-          selectedItemColor: SecondMainTheme.secondMainThemeColor,
+          selectedItemColor: AppColors.blue,
           unselectedItemColor: Colors.black,
         ),
         useMaterial3: true,

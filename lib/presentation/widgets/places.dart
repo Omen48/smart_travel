@@ -1,4 +1,4 @@
-import 'package:auth_study/presentation/values/colors.dart';
+import 'package:auth_study/presentation/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -103,7 +103,7 @@ class Place extends StatelessWidget {
   const Place({super.key, required this.imageAsset, required this.placeName});
 
   final placeStyle = const TextStyle(
-    color: SecondMainTheme.secondMainThemeColor,
+    color: AppColors.blue,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.w600,
     fontSize: 15,

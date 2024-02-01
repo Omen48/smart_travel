@@ -1,4 +1,4 @@
-import 'package:auth_study/presentation/values/colors.dart';
+import 'package:auth_study/presentation/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -49,7 +49,7 @@ class LoginRegisterTextField extends StatelessWidget {
 
 //Текстовое поле поиска
 class SearchTextField extends StatelessWidget {
-  final Color color = ThirdMainTheme.thirdMainTheme;
+  final Color color = AppColors.green;
   const SearchTextField({super.key});
 
   @override

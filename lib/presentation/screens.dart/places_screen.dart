@@ -2,7 +2,6 @@ import 'package:auth_study/presentation/widgets/drawer_places.dart';
 import 'package:auth_study/presentation/widgets/places.dart';
 import 'package:flutter/material.dart';
 
-final scaffoldKey = GlobalKey<ScaffoldState>();
 
 class PlacesScreen extends StatefulWidget {
   const PlacesScreen({super.key});
@@ -15,13 +14,16 @@ class _PlacesScreenState extends State<PlacesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: scaffoldKey,
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            scaffoldKey.currentState?.openDrawer();
-          },
-          icon: Image.asset('icons/drawer.png'),
+        leading: Builder(
+          builder: (context) {
+            return IconButton(
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              icon: Image.asset('icons/drawer.png'),
+            );
+          }
         ),
         title: Center(
           child: SizedBox(

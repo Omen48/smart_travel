@@ -1,5 +1,4 @@
-import 'package:auth_study/presentation/screens.dart/places_screen.dart';
-import 'package:auth_study/presentation/values/colors.dart';
+import 'package:auth_study/presentation/theme/colors.dart';
 import 'package:auth_study/presentation/widgets/places.dart';
 import 'package:auth_study/presentation/widgets/settings.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +16,6 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: scaffoldKey,
       appBar: AppBar(
         title: Center(
           child: SizedBox(
@@ -27,11 +25,15 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
           ),
         ),
         actions: [
-          IconButton(
-            icon: Image.asset('icons/settings.png'),
-            onPressed: () {
-              scaffoldKey.currentState!.openEndDrawer();
-            },
+          Builder(
+            builder: (context) {
+              return IconButton(
+                icon: Image.asset('icons/settings.png'),
+                onPressed: () {
+                  Scaffold.of(context).openEndDrawer();
+                },
+              );
+            }
           ),
         ],
       ),
@@ -59,7 +61,7 @@ class Favourite extends StatefulWidget {
 
 class FavouriteState extends State<Favourite> {
   final favouriteStyle = const TextStyle(
-    color: SecondMainTheme.secondMainThemeColor,
+    color: AppColors.blue,
     fontStyle: FontStyle.normal,
     fontWeight: FontWeight.w600,
     fontSize: 15,

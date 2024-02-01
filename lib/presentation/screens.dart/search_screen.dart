@@ -1,7 +1,7 @@
 import 'package:auth_study/presentation/widgets/my_textfields.dart';
 import 'package:auth_study/presentation/widgets/places.dart';
 import 'package:flutter/material.dart';
-import 'package:auth_study/presentation/values/colors.dart';
+import 'package:auth_study/presentation/theme/colors.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -30,7 +30,7 @@ class _SearchScreenState extends State<SearchScreen> {
             child: Text(
               'Все, что ты искал за последнее время',
               style: TextStyle(
-                color: SecondMainTheme.secondMainThemeColor,
+                color: AppColors.blue,
                 fontStyle: FontStyle.normal,
                 fontWeight: FontWeight.w600,
                 fontSize: 15,
