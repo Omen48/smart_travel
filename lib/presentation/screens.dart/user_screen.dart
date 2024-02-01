@@ -43,7 +43,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
           SizedBox(
             height: 10,
           ),
-          Expanded (child: Favourite()),
+          Expanded(child: Favourite()),
         ],
       ),
     );
@@ -142,16 +142,14 @@ class Photo extends StatelessWidget {
   }
 }
 
-
-
 class FavouriteList extends StatelessWidget {
   FavouriteList({super.key});
 
   final List<PlaceData> favList = [
-    const PlaceData(imageAsset: 'images/worship3.png', placeName: 'Тауэрский мост'),
-    const PlaceData(imageAsset: 'images/worship3.png', placeName: 'Тауэрский мост')
-
-
+    const PlaceData(
+        imageAsset: 'images/worship3.png', placeName: 'Тауэрский мост'),
+    const PlaceData(
+        imageAsset: 'images/worship3.png', placeName: 'Тауэрский мост')
   ];
 
   @override
@@ -168,6 +166,7 @@ class FavouriteList extends StatelessWidget {
             placeName: favList[index].placeName,
           ),
         );
-      },);
+      },
+    );
   }
 }

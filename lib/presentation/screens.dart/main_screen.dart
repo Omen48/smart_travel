@@ -16,9 +16,9 @@ class _MainscreenState extends State<Mainscreen> {
   int _selectedScreen = 0;
 
   List<Widget> currentScreen = <Widget>[
-    PlacesScreen(),
-    MapScreen(),
-    UserInfoScreen()
+    const PlacesScreen(),
+    const MapScreen(),
+    const UserInfoScreen()
   ];
 
   void onSelectedTab(int index) {
