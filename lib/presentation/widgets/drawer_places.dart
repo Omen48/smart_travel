@@ -1,8 +1,6 @@
 import 'package:auth_study/presentation/theme/colors.dart';
 import 'package:flutter/material.dart';
 
-
-
 //настройки в поле рекомендаций
 
 class DrawerPlaces extends StatefulWidget {
@@ -24,7 +22,7 @@ class _DrawerPlacesState extends State<DrawerPlaces> {
     return Drawer(
       child: ListView(
         children: [
-           DrawerHeader(
+          DrawerHeader(
             child: Center(
               child: Column(
                 children: [
@@ -42,9 +40,7 @@ class _DrawerPlacesState extends State<DrawerPlaces> {
           ),
           ListTile(
             title: const Text('TestItem1'),
-            onTap: () {
-              Navigator.pop(context);
-            },
+            onTap: () {},
           ),
           ListTile(
             title: const Text('Test'),

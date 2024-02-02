@@ -1,6 +1,7 @@
 import 'package:auth_study/presentation/widgets/drawer_places.dart';
 import 'package:auth_study/presentation/widgets/places.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 
 class PlacesScreen extends StatefulWidget {
@@ -36,7 +37,8 @@ class _PlacesScreenState extends State<PlacesScreen> {
           IconButton(
             icon: Image.asset('icons/search.png'),
             onPressed: () {
-              Navigator.of(context).pushNamed('/searchscreen');
+              // Navigator.of(context).pushNamed('/searchscreen');
+              context.go("/places/search");
             },
           ),
         ],

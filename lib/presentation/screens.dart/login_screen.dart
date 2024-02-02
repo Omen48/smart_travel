@@ -2,6 +2,7 @@ import 'package:auth_study/presentation/theme/colors.dart';
 import 'package:auth_study/presentation/widgets/buttons.dart';
 import 'package:auth_study/presentation/widgets/my_textfields.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class OpenScreen extends StatelessWidget {
   const OpenScreen({super.key});
@@ -147,7 +148,7 @@ class _LoginFormState extends State<LoginForm> {
   void auth() {
     if (_logincontroller.text == 'admin' && _passcontroller.text == 'admin') {
       _errorText = null;
-      Navigator.of(context).pushReplacementNamed('/mainsreen');
+     context.go('/places');
     } else {
       _errorText = 'Неправильный логин или пароль';
     }
@@ -206,7 +207,8 @@ class _LoginFormState extends State<LoginForm> {
             if (_errorText != null) ...[
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed('/registerscreen');
+                  // Navigator.of(context).pushNamed('/registerscreen');
+                  context.go('/auth/recover');
                 },
                 child: const Text(
                   'Забыли пароль?',

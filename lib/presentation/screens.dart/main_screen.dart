@@ -1,47 +1,26 @@
-import 'package:auth_study/presentation/screens.dart/map_screen.dart';
-import 'package:auth_study/presentation/screens.dart/places_screen.dart';
-
-import 'package:auth_study/presentation/screens.dart/user_screen.dart';
+import 'package:go_router/go_router.dart';
 // import 'package:auth_study/values/colors.dart';
 import 'package:flutter/material.dart';
 
-class Mainscreen extends StatefulWidget {
-  const Mainscreen({super.key});
+class Mainscreen extends StatelessWidget {
+  const Mainscreen({required this.navigationShell, super.key});
 
-  @override
-  State<Mainscreen> createState() => _MainscreenState();
-}
+  final StatefulNavigationShell navigationShell;
 
-class _MainscreenState extends State<Mainscreen> {
-  int _selectedScreen = 0;
-
-  List<Widget> currentScreen = <Widget>[
-    const PlacesScreen(),
-    const MapScreen(),
-    const UserInfoScreen()
-  ];
-
-  void onSelectedTab(int index) {
-    if (_selectedScreen == index) return;
-    setState(
-      () {
-        _selectedScreen = index;
-      },
-    );
+  void onSelectedTab(context, index) {
+    navigationShell.goBranch(index,
+        initialLocation: index == navigationShell.currentIndex);
   }
-
-  bool isSearchVisible = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: currentScreen[_selectedScreen],
-      ),
+      body: navigationShell,
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        currentIndex: _selectedScreen,
+        onTap: (int index) => onSelectedTab(context, index),
+        currentIndex: navigationShell.currentIndex,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(
@@ -74,7 +53,6 @@ class _MainscreenState extends State<Mainscreen> {
             label: '',
           ),
         ],
-        onTap: onSelectedTab,
       ),
     );
   }
