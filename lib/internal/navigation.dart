@@ -2,7 +2,7 @@ import 'package:auth_study/presentation/screens.dart/map_screen.dart';
 import 'package:auth_study/presentation/screens.dart/places_screen.dart';
 import 'package:auth_study/presentation/screens.dart/user_screen.dart';
 import 'package:auth_study/presentation/screens.dart/loadscreen.dart';
-import 'package:auth_study/presentation/screens.dart/main_screen.dart';
+import 'package:auth_study/presentation/widgets/bottom_navigation_widget.dart';
 import 'package:auth_study/presentation/screens.dart/login_screen.dart';
 import 'package:auth_study/presentation/screens.dart/recover_screen.dart';
 import 'package:auth_study/presentation/screens.dart/search_screen.dart';
@@ -38,7 +38,7 @@ final router = GoRouter(
     StatefulShellRoute.indexedStack(
       builder: (BuildContext context, GoRouterState state,
           StatefulNavigationShell navigationShell) {
-        return Mainscreen(navigationShell: navigationShell);
+        return BottomNavigationWidget(navigationShell: navigationShell);
       },
       branches: <StatefulShellBranch>[
         StatefulShellBranch(

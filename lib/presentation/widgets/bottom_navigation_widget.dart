@@ -2,8 +2,8 @@ import 'package:go_router/go_router.dart';
 // import 'package:auth_study/values/colors.dart';
 import 'package:flutter/material.dart';
 
-class Mainscreen extends StatelessWidget {
-  const Mainscreen({required this.navigationShell, super.key});
+class BottomNavigationWidget extends StatelessWidget {
+  const BottomNavigationWidget({required this.navigationShell, super.key});
 
   final StatefulNavigationShell navigationShell;
 
