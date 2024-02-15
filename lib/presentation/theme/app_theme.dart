@@ -7,6 +7,7 @@ abstract interface class AppTheme {
           ColorScheme.fromSeed(seedColor: const Color.fromRGBO(3, 37, 65, 1)),
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.white,
+        centerTitle: true
       ),
       scaffoldBackgroundColor: AppColors.white,
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(

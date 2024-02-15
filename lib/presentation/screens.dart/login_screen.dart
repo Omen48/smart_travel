@@ -207,7 +207,6 @@ class _LoginFormState extends State<LoginForm> {
             if (_errorText != null) ...[
               TextButton(
                 onPressed: () {
-                  // Navigator.of(context).pushNamed('/registerscreen');
                   context.go('/auth/recover');
                 },
                 child: const Text(
