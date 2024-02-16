@@ -47,7 +47,7 @@ class PlacesList extends StatelessWidget {
     const PlaceData(
         imageAsset: 'images/worship1.png', placeName: 'Бурдж-Халифа'),
     const PlaceData(
-        imageAsset: 'images/worship2.png', placeName: 'Бурдж-Халифа'),
+        imageAsset: 'images/worship1.png', placeName: 'Бурдж'),
   ];
 
   @override
