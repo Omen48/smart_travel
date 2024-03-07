@@ -32,7 +32,9 @@ class SmartTravelLogo extends StatelessWidget {
     fontWeight: FontWeight.w500,
     color: Colors.black,
   );
+
   const SmartTravelLogo({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -59,57 +61,65 @@ class LogRegForm extends StatefulWidget {
 
 class _LogRegState extends State<LogRegForm> {
   int _selectedWidget = 0;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            ElevatedButton(
-              autofocus: true,
-              onPressed: () {
-                setState(() {
-                  _selectedWidget = 0;
-                });
-              },
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(_selectedWidget == 0
-                    ? AppColors.green
-                    : Colors.grey),
-                padding: const MaterialStatePropertyAll(
-                  EdgeInsets.only(left: 40, right: 39, top: 8, bottom: 42),
-                ),
-              ),
-              child: const Text(
+        Transform.translate(
+          offset: Offset(-77.5, 115), // Смещаем первую кнопку на 20 вниз
+          child: ElevatedButton(
+            autofocus: true,
+            onPressed: () {
+              setState(() {
+                _selectedWidget = 0;
+              });
+            },
+            style: ButtonStyle(
+              elevation: MaterialStateProperty.all(0),
+              minimumSize: MaterialStateProperty.all(
+                  Size(MediaQuery.of(context).size.width * 0.391, 70)),
+              shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20))),
+              backgroundColor: MaterialStateProperty.all(
+                  _selectedWidget == 0 ? AppColors.green : Colors.grey),
+            ),
+            child: const Padding(
+              padding: EdgeInsets.only(bottom: 40.0),
+              child: Text(
                 'Авторизация',
                 style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700),
               ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                setState(
-                  () {
-                    _selectedWidget = 1;
-                  },
-                );
-              },
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(_selectedWidget == 0
-                    ? Colors.grey
-                    : AppColors.green),
-                padding: const MaterialStatePropertyAll(
-                  EdgeInsets.only(left: 40, right: 30, top: 8, bottom: 42),
-                ),
-              ),
-              child: const Text(
+          ),
+        ),
+        Transform.translate(
+          offset: Offset(72, 45),
+          child: ElevatedButton(
+            onPressed: () {
+              setState(() {
+                _selectedWidget = 1;
+              });
+            },
+            style: ButtonStyle(
+              elevation: MaterialStateProperty.all(0),
+              minimumSize: MaterialStateProperty.all(
+                  Size(MediaQuery.of(context).size.width * 0.426, 70)),
+              shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20))),
+              backgroundColor: MaterialStateProperty.all(
+                  _selectedWidget == 1 ? AppColors.green : Colors.grey),
+            ),
+            child: const Padding(
+              padding: EdgeInsets.only(bottom: 40.0, left: 10),
+              child: Text(
                 'Регистрация',
                 style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700),
               ),
             ),
-          ],
+          ),
         ),
-        if (_selectedWidget == 0) const LoginForm(),
-        if (_selectedWidget == 1) const RegForm(),
+        _selectedWidget == 0 ? const LoginForm() : const RegForm(),
       ],
     );
   }
@@ -148,7 +158,7 @@ class _LoginFormState extends State<LoginForm> {
   void auth() {
     if (_logincontroller.text == 'admin' && _passcontroller.text == 'admin') {
       _errorText = null;
-     context.go('/places');
+      context.go('/places');
     } else {
       _errorText = 'Неправильный логин или пароль';
     }
@@ -156,14 +166,12 @@ class _LoginFormState extends State<LoginForm> {
   }
 
   static const textstyle1 = TextStyle(
-      fontSize: 12,
-      fontWeight: FontWeight.w800,
-      color: AppColors.blue);
+      fontSize: 12, fontWeight: FontWeight.w800, color: AppColors.blue);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 310,
+      width: MediaQuery.of(context).size.width * 0.795,
       height: 274,
       child: DecoratedBox(
         decoration: BoxDecoration(
@@ -231,9 +239,7 @@ class RegForm extends StatefulWidget {
 
 class _RegFormState extends State<RegForm> {
   static const textstyle1 = TextStyle(
-      fontSize: 12,
-      fontWeight: FontWeight.w800,
-      color: AppColors.blue);
+      fontSize: 12, fontWeight: FontWeight.w800, color: AppColors.blue);
 
   @override
   Widget build(BuildContext context) {
@@ -283,4 +289,3 @@ class _RegFormState extends State<RegForm> {
     );
   }
 }
-

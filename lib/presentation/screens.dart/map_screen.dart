@@ -12,12 +12,10 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: SizedBox(
-            height: 25,
-            width: 25,
-            child: Image.asset('images/main_logo.png'),
-          ),
+        title: SizedBox(
+          height: 25,
+          width: 25,
+          child: Image.asset('images/main_logo.png'),
         ),
         actions: [
           IconButton(

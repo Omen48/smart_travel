@@ -4,37 +4,27 @@ import 'package:auth_study/presentation/widgets/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-class UserInfoScreen extends StatefulWidget {
+class UserInfoScreen extends StatelessWidget {
   const UserInfoScreen({super.key});
 
-  @override
-  State<UserInfoScreen> createState() => _UserInfoScreenState();
-}
-
-class _UserInfoScreenState extends State<UserInfoScreen> {
-  // const UserInfoScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: SizedBox(
-            height: 25,
-            width: 25,
-            child: Image.asset('images/main_logo.png'),
-          ),
+        title: SizedBox(
+          height: 25,
+          width: 25,
+          child: Image.asset('images/main_logo.png'),
         ),
         actions: [
-          Builder(
-            builder: (context) {
-              return IconButton(
-                icon: Image.asset('icons/settings.png'),
-                onPressed: () {
-                  Scaffold.of(context).openEndDrawer();
-                },
-              );
-            }
-          ),
+          Builder(builder: (context) {
+            return IconButton(
+              icon: Image.asset('icons/settings.png'),
+              onPressed: () {
+                Scaffold.of(context).openEndDrawer();
+              },
+            );
+          }),
         ],
       ),
       endDrawer: const SettingsUser(),
@@ -66,6 +56,7 @@ class FavouriteState extends State<Favourite> {
     fontWeight: FontWeight.w600,
     fontSize: 15,
   );
+
   @override
   Widget build(BuildContext context) {
     return Column(

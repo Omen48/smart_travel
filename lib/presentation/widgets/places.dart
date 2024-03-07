@@ -10,16 +10,6 @@ class PlaceData {
   const PlaceData({required this.imageAsset, required this.placeName});
 }
 
-// class MySliverSimpleGridDelegateWithFixedCrossAxisCount extends SliverGridDelegateWithFixedCrossAxisCount {
-//     @override
-//       final int crossAxisCount;
-//     @override
-//       final double mainAxisSpacing;
-//     @override
-//       final double crossAxisSpacing;
-
-//   MySliverSimpleGridDelegateWithFixedCrossAxisCount(this.crossAxisCount, this.mainAxisSpacing, this.crossAxisSpacing, {required int crossAxisCount}) : super(crossAxisCount: 0);
-//   }
 
 // Список рекомендаций
 class PlacesList extends StatelessWidget {
