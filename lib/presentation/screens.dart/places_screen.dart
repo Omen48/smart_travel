@@ -3,7 +3,6 @@ import 'package:auth_study/presentation/widgets/places.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-
 class PlacesScreen extends StatefulWidget {
   const PlacesScreen({super.key});
 
@@ -16,16 +15,14 @@ class _PlacesScreenState extends State<PlacesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Builder(
-          builder: (context) {
-            return IconButton(
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-              icon: Image.asset('icons/drawer.png'),
-            );
-          }
-        ),
+        leading: Builder(builder: (context) {
+          return IconButton(
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+            icon: Image.asset('icons/drawer.png'),
+          );
+        }),
         title: Center(
           child: SizedBox(
             height: 25,

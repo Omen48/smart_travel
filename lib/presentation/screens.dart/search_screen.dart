@@ -21,7 +21,7 @@ class _SearchScreenState extends State<SearchScreen> {
         ),
       ),
       backgroundColor: Colors.white,
-      body:   Column(
+      body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SearchTextField(),
@@ -37,7 +37,7 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
             ),
           ),
-            Flexible(child: SearchPlacesList())
+          Flexible(child: SearchPlacesList())
         ],
       ),
     );

@@ -29,12 +29,11 @@ final router = GoRouter(
         ),
       ],
     ),
-  GoRoute(
+    GoRoute(
       path: '/mainscr',
       builder: (BuildContext context, GoRouterState state) =>
           const StartScreen(),
     ),
-
     StatefulShellRoute.indexedStack(
       builder: (BuildContext context, GoRouterState state,
           StatefulNavigationShell navigationShell) {

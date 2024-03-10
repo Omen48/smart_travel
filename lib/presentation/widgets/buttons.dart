@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
-
 // Форма для кнопки
 
 class MyButton extends StatelessWidget {
   final VoidCallback onPressed;
   final TextStyle textstyle;
   final Color buttoncolor;
-  const MyButton({super.key, required this.onPressed, required this.textstyle, required this.buttoncolor});
+  const MyButton(
+      {super.key,
+      required this.onPressed,
+      required this.textstyle,
+      required this.buttoncolor});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,7 @@ class MyButton extends StatelessWidget {
           EdgeInsets.symmetric(horizontal: 31, vertical: 8),
         ),
       ),
-      child:  Text(
+      child: Text(
         'Войти',
         style: textstyle,
       ),

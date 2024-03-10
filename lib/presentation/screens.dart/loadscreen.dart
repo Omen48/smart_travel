@@ -11,7 +11,6 @@ class StartScreen extends StatefulWidget {
 }
 
 class _StartScreenState extends State<StartScreen> {
-
   // @override
   // void initState() {
   //    implement initState
@@ -33,10 +32,9 @@ class _StartScreenState extends State<StartScreen> {
   //   // Ваш код для загрузки данных с сервера
   // }
 
-
   @override
   Widget build(BuildContext context) {
-    Timer(const Duration(seconds: 1), () { 
+    Timer(const Duration(seconds: 1), () {
       context.go('/auth');
     });
     return const Scaffold(

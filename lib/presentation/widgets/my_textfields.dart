@@ -2,7 +2,6 @@ import 'package:auth_study/presentation/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
 //Текстовое поле логина/регистрации
 class LoginRegisterTextField extends StatelessWidget {
   final TextEditingController? controller;
@@ -46,7 +45,6 @@ class LoginRegisterTextField extends StatelessWidget {
   }
 }
 
-
 //Текстовое поле поиска
 class SearchTextField extends StatelessWidget {
   final Color color = AppColors.green;
@@ -55,18 +53,19 @@ class SearchTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left:15.0, right: 15.0, bottom: 32),
+      padding: const EdgeInsets.only(left: 15.0, right: 15.0, bottom: 32),
       child: TextField(
         decoration: InputDecoration(
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(20),),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 11, vertical: 8),
-          prefixIcon: const Icon(Icons.search),
-          fillColor:color ,
-          filled: true,
-          constraints: const BoxConstraints(maxHeight: 40, minWidth: 360),
-          focusColor: color
-      
-        ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 11, vertical: 8),
+            prefixIcon: const Icon(Icons.search),
+            fillColor: color,
+            filled: true,
+            constraints: const BoxConstraints(maxHeight: 40, minWidth: 360),
+            focusColor: color),
       ),
     );
   }

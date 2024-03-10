@@ -10,7 +10,6 @@ class PlaceData {
   const PlaceData({required this.imageAsset, required this.placeName});
 }
 
-
 // Список рекомендаций
 class PlacesList extends StatelessWidget {
   PlacesList({super.key});
@@ -36,8 +35,7 @@ class PlacesList extends StatelessWidget {
         imageAsset: 'images/worship3.png', placeName: 'Бурдж-Халифа'),
     const PlaceData(
         imageAsset: 'images/worship1.png', placeName: 'Бурдж-Халифа'),
-    const PlaceData(
-        imageAsset: 'images/worship1.png', placeName: 'Бурдж'),
+    const PlaceData(imageAsset: 'images/worship1.png', placeName: 'Бурдж'),
   ];
 
   @override

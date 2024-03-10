@@ -20,8 +20,7 @@ class _MapScreenState extends State<MapScreen> {
         actions: [
           IconButton(
             icon: Image.asset('icons/search.png'),
-            onPressed: () {
-            },
+            onPressed: () {},
           ),
         ],
       ),
