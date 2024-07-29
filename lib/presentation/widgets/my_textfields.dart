@@ -20,7 +20,7 @@ class LoginRegisterTextField extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(top: paddingvalue, left: 35, right: 35),
       child: TextField(
-        style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w300),
+        style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w300),
         controller: controller,
         inputFormatters: [
           FilteringTextInputFormatter.allow(
@@ -33,10 +33,10 @@ class LoginRegisterTextField extends StatelessWidget {
               const EdgeInsets.symmetric(horizontal: 11.0, vertical: 4.0),
           isCollapsed: true,
           filled: true,
-          constraints: const BoxConstraints(maxHeight: 24, minWidth: 240),
+          constraints: const BoxConstraints(maxHeight: 38, minWidth: 240),
           fillColor: Colors.white,
           hintText: hintText,
-          hintStyle: const TextStyle(fontSize: 12, fontWeight: FontWeight.w300),
+          hintStyle: const TextStyle(fontSize: 17, fontWeight: FontWeight.w300),
           suffixIcon: Image.asset('icons/pensil.png'),
         ),
         obscureText: obscureText,

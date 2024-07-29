@@ -32,8 +32,8 @@ class _SearchScreenState extends State<SearchScreen> {
               style: TextStyle(
                 color: AppColors.blue,
                 fontStyle: FontStyle.normal,
-                fontWeight: FontWeight.w600,
-                fontSize: 15,
+                fontWeight: FontWeight.w900,
+                fontSize: 20,
               ),
             ),
           ),

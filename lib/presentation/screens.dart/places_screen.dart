@@ -46,9 +46,9 @@ class _PlacesScreenState extends State<PlacesScreen> {
         children: [
           const Padding(
             padding: EdgeInsets.only(
-                left: 15.0, right: 15.0, top: 42.0, bottom: 35.0),
+                left: 15.0, right: 15.0, top: 42.0, bottom: 20.0),
             child: Text(
-              'СОВЕТУЕМ ПОСЕТИТЬ В',
+              'СОВЕТУЕМ ПОСЕТИТЬ В САНКТ-ПЕТЕРБУРГЕ',
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w900,

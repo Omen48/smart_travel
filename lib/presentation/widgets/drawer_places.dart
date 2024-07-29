@@ -39,11 +39,15 @@ class _DrawerPlacesState extends State<DrawerPlaces> {
             ),
           ),
           ListTile(
-            title: const Text('TestItem1'),
+            title: const Text('Настройка темы'),
             onTap: () {},
           ),
           ListTile(
-            title: const Text('Test'),
+            title: const Text('Настройка рекомендаций'),
+            onTap: () {},
+          ),
+          ListTile(
+            title: const Text('Настройка маршрута'),
             onTap: () {},
           ),
         ],

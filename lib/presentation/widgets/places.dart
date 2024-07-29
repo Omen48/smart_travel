@@ -16,32 +16,25 @@ class PlacesList extends StatelessWidget {
 
   final List<PlaceData> places = [
     const PlaceData(
-        imageAsset: 'images/worship1.png', placeName: 'Бурдж-Халифа'),
+        imageAsset: 'images/isaac.png', placeName: 'Исаакиевский собор'),
+    const PlaceData(imageAsset: 'images/sfinks1.jpg', placeName: 'Сфинксы'),
     const PlaceData(
-        imageAsset: 'images/worship2.png', placeName: 'Бурдж-Халифа'),
+        imageAsset: 'images/shuvalovo.png',
+        placeName: 'Деревня Художников'),
     const PlaceData(
-        imageAsset: 'images/worship3.png', placeName: 'Бурдж-Халифа'),
+        imageAsset: 'images/nimph.png', placeName: 'Нимфы, несущие глобус '),
     const PlaceData(
-        imageAsset: 'images/worship1.png', placeName: 'Бурдж-Халифа'),
+        imageAsset: 'images/podlodka.png', placeName: 'Атомная подлодка К-3'),
     const PlaceData(
-        imageAsset: 'images/worship2.png', placeName: 'Бурдж-Халифа'),
+        imageAsset: 'images/okhtenka.png', placeName: 'Памятник "Охтенка"'),
     const PlaceData(
-        imageAsset: 'images/worship3.png', placeName: 'Бурдж-Халифа'),
-    const PlaceData(
-        imageAsset: 'images/worship1.png', placeName: 'Бурдж-Халифа'),
-    const PlaceData(
-        imageAsset: 'images/worship2.png', placeName: 'Бурдж-Халифа'),
-    const PlaceData(
-        imageAsset: 'images/worship3.png', placeName: 'Бурдж-Халифа'),
-    const PlaceData(
-        imageAsset: 'images/worship1.png', placeName: 'Бурдж-Халифа'),
-    const PlaceData(imageAsset: 'images/worship1.png', placeName: 'Бурдж'),
+        imageAsset: 'images/okhtenka.png', placeName: 'Памятник "Охтенка"'),
   ];
 
   @override
   Widget build(BuildContext context) {
     return MasonryGridView.builder(
-      // padding: const EdgeInsets.symmetric(horizontal: 15), // Отступы по краям
+      padding: const EdgeInsets.symmetric(horizontal: 15), // Отступы по краям
       gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2),
       itemCount: places.length,
@@ -88,6 +81,7 @@ class SearchPlacesList extends StatelessWidget {
 class Place extends StatelessWidget {
   final String imageAsset;
   final String placeName;
+
   const Place({super.key, required this.imageAsset, required this.placeName});
 
   final placeStyle = const TextStyle(
@@ -99,31 +93,36 @@ class Place extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Stack(
-          children: [
-            SizedBox(
-              height: 179,
-              width: 166,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.asset(imageAsset, fit: BoxFit.cover),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Stack(
+            children: [
+              SizedBox(
+                height: 179,
+                width: 166,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset(imageAsset, fit: BoxFit.cover),
+                ),
+              ),
+              const Positioned(top: -3, left: -3, child: CloseIcon()),
+              const Positioned(top: -3, right: -3, child: LikeIcon()),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 13.0),
+            child: Flexible(
+              child: Text(
+                placeName,
+                style: placeStyle,
               ),
             ),
-            const Positioned(top: -3, left: -3, child: CloseIcon()),
-            const Positioned(top: -3, right: -3, child: LikeIcon()),
-          ],
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 13.0),
-          child: Text(
-            placeName,
-            style: placeStyle,
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }

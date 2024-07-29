@@ -1,3 +1,4 @@
+// import 'package:auth_study/presentation/theme/app_theme.dart';
 import 'package:auth_study/presentation/theme/colors.dart';
 import 'package:auth_study/presentation/widgets/buttons.dart';
 import 'package:auth_study/presentation/widgets/my_textfields.dart';
@@ -67,7 +68,7 @@ class _LogRegState extends State<LogRegForm> {
     return Column(
       children: [
         Transform.translate(
-          offset: Offset(-77.5, 115), // Смещаем первую кнопку на 20 вниз
+          offset: const Offset(-83, 118), // Смещаем первую кнопку на 20 вниз
           child: ElevatedButton(
             autofocus: true,
             onPressed: () {
@@ -88,13 +89,13 @@ class _LogRegState extends State<LogRegForm> {
               padding: EdgeInsets.only(bottom: 40.0),
               child: Text(
                 'Авторизация',
-                style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700),
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
               ),
             ),
           ),
         ),
         Transform.translate(
-          offset: Offset(72, 45),
+          offset: const Offset(75, 40),
           child: ElevatedButton(
             onPressed: () {
               setState(() {
@@ -111,10 +112,10 @@ class _LogRegState extends State<LogRegForm> {
                   _selectedWidget == 1 ? AppColors.green : Colors.grey),
             ),
             child: const Padding(
-              padding: EdgeInsets.only(bottom: 40.0, left: 10),
+              padding: EdgeInsets.only(bottom: 40.0,),
               child: Text(
                 'Регистрация',
-                style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700),
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
               ),
             ),
           ),
@@ -166,7 +167,7 @@ class _LoginFormState extends State<LoginForm> {
   }
 
   static const textstyle1 = TextStyle(
-      fontSize: 12, fontWeight: FontWeight.w800, color: AppColors.blue);
+      fontSize: 18, fontWeight: FontWeight.w800, color: AppColors.blue);
 
   @override
   Widget build(BuildContext context) {
@@ -209,9 +210,9 @@ class _LoginFormState extends State<LoginForm> {
               const SizedBox(height: 38),
             ],
             MyButton(
-                onPressed: auth,
-                textstyle: textstyle1,
-                buttoncolor: AppColors.orange),
+              onPressed: auth,
+              textstyle: textstyle1,
+            ),
             if (_errorText != null) ...[
               TextButton(
                 onPressed: () {
@@ -239,13 +240,13 @@ class RegForm extends StatefulWidget {
 
 class _RegFormState extends State<RegForm> {
   static const textstyle1 = TextStyle(
-      fontSize: 12, fontWeight: FontWeight.w800, color: AppColors.blue);
+      fontSize: 18, fontWeight: FontWeight.w800, color: AppColors.blue);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 310,
-      height: 355,
+      width: MediaQuery.of(context).size.width * 0.795,
+      height: 420,
       child: DecoratedBox(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
@@ -280,9 +281,9 @@ class _RegFormState extends State<RegForm> {
             ),
             const SizedBox(height: 33),
             MyButton(
-                onPressed: () {},
-                textstyle: textstyle1,
-                buttoncolor: AppColors.orange)
+              onPressed: () {},
+              textstyle: textstyle1,
+            )
           ],
         ),
       ),

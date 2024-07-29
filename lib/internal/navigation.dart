@@ -1,3 +1,4 @@
+
 import 'package:auth_study/presentation/screens.dart/map_screen.dart';
 import 'package:auth_study/presentation/screens.dart/places_screen.dart';
 import 'package:auth_study/presentation/screens.dart/user_screen.dart';
@@ -51,6 +52,7 @@ final router = GoRouter(
                   path: 'search',
                   builder: (context, state) => const SearchScreen(),
                 ),
+
               ],
             ),
           ],
