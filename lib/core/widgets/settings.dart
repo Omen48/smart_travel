@@ -1,5 +1,6 @@
-import 'package:auth_study/presentation/theme/colors.dart';
+
 import 'package:flutter/material.dart';
+import 'package:smart_travel/core/theme/colors.dart';
 
 class SettingsUser extends StatefulWidget {
   static const List<MenuRowData> firstMenuRow = [

@@ -1,8 +1,7 @@
-import 'package:auth_study/presentation/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:smart_travel/core/theme/colors.dart';
 
-// Модель данных для места
 class PlaceData {
   final String imageAsset;
   final String placeName;
@@ -10,7 +9,6 @@ class PlaceData {
   const PlaceData({required this.imageAsset, required this.placeName});
 }
 
-// Список рекомендаций
 class PlacesList extends StatelessWidget {
   PlacesList({super.key});
 

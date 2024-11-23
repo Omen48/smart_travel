@@ -1,8 +1,10 @@
-import 'package:auth_study/presentation/theme/colors.dart';
-import 'package:auth_study/presentation/widgets/places.dart';
-import 'package:auth_study/presentation/widgets/settings.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:smart_travel/core/theme/colors.dart';
+import 'package:smart_travel/core/widgets/settings.dart';
+
+import '../../../core/widgets/places.dart';
 
 class UserInfoScreen extends StatelessWidget {
   const UserInfoScreen({super.key});

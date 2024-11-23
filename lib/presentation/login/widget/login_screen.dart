@@ -1,9 +1,9 @@
-// import 'package:auth_study/presentation/theme/app_theme.dart';
-import 'package:auth_study/presentation/theme/colors.dart';
-import 'package:auth_study/presentation/widgets/buttons.dart';
-import 'package:auth_study/presentation/widgets/my_textfields.dart';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:smart_travel/core/theme/colors.dart';
+import 'package:smart_travel/core/widgets/buttons.dart';
+import 'package:smart_travel/core/widgets/my_textfields.dart';
 
 class OpenScreen extends StatelessWidget {
   const OpenScreen({super.key});
@@ -77,12 +77,12 @@ class _LogRegState extends State<LogRegForm> {
               });
             },
             style: ButtonStyle(
-              elevation: MaterialStateProperty.all(0),
-              minimumSize: MaterialStateProperty.all(
+              elevation: WidgetStateProperty.all(0),
+              minimumSize: WidgetStateProperty.all(
                   Size(MediaQuery.of(context).size.width * 0.391, 70)),
-              shape: MaterialStateProperty.all(RoundedRectangleBorder(
+              shape: WidgetStateProperty.all(RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20))),
-              backgroundColor: MaterialStateProperty.all(
+              backgroundColor: WidgetStateProperty.all(
                   _selectedWidget == 0 ? AppColors.green : Colors.grey),
             ),
             child: const Padding(
@@ -103,12 +103,12 @@ class _LogRegState extends State<LogRegForm> {
               });
             },
             style: ButtonStyle(
-              elevation: MaterialStateProperty.all(0),
-              minimumSize: MaterialStateProperty.all(
+              elevation: WidgetStateProperty.all(0),
+              minimumSize: WidgetStateProperty.all(
                   Size(MediaQuery.of(context).size.width * 0.426, 70)),
-              shape: MaterialStateProperty.all(RoundedRectangleBorder(
+              shape: WidgetStateProperty.all(RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20))),
-              backgroundColor: MaterialStateProperty.all(
+              backgroundColor: WidgetStateProperty.all(
                   _selectedWidget == 1 ? AppColors.green : Colors.grey),
             ),
             child: const Padding(

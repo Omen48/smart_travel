@@ -1,6 +1,6 @@
-import 'package:auth_study/presentation/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:smart_travel/core/theme/colors.dart';
 
 //Текстовое поле логина/регистрации
 class LoginRegisterTextField extends StatelessWidget {

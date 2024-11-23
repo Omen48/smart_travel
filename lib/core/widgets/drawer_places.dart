@@ -1,5 +1,5 @@
-import 'package:auth_study/presentation/theme/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_travel/core/theme/colors.dart';
 
 //настройки в поле рекомендаций
 

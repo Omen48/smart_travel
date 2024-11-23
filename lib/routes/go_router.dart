@@ -1,14 +1,13 @@
-
-import 'package:auth_study/presentation/screens.dart/map_screen.dart';
-import 'package:auth_study/presentation/screens.dart/places_screen.dart';
-import 'package:auth_study/presentation/screens.dart/user_screen.dart';
-import 'package:auth_study/presentation/screens.dart/loadscreen.dart';
-import 'package:auth_study/presentation/widgets/bottom_navigation_widget.dart';
-import 'package:auth_study/presentation/screens.dart/login_screen.dart';
-import 'package:auth_study/presentation/screens.dart/recover_screen.dart';
-import 'package:auth_study/presentation/screens.dart/search_screen.dart';
+import 'package:smart_travel/core/widgets/bottom_navigation_widget.dart';
+import 'package:smart_travel/presentation/login/widget/login_screen.dart';
+import 'package:smart_travel/presentation/login/widget/recover_screen.dart';
+import 'package:smart_travel/presentation/map_screen/widget/map_screen.dart';
+import 'package:smart_travel/presentation/places_with_recomendations/widget/places_screen.dart';
+import 'package:smart_travel/presentation/places_with_recomendations/widget/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:smart_travel/presentation/splash/widget/splash.dart';
+import 'package:smart_travel/presentation/user_screen/widget/user_screen.dart';
 
 final router = GoRouter(
   initialLocation: '/startscreen',
@@ -52,7 +51,6 @@ final router = GoRouter(
                   path: 'search',
                   builder: (context, state) => const SearchScreen(),
                 ),
-
               ],
             ),
           ],

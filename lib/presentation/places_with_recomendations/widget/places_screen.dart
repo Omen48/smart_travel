@@ -1,7 +1,8 @@
-import 'package:auth_study/presentation/widgets/drawer_places.dart';
-import 'package:auth_study/presentation/widgets/places.dart';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:smart_travel/core/widgets/drawer_places.dart';
+import 'package:smart_travel/core/widgets/places.dart';
 
 class PlacesScreen extends StatefulWidget {
   const PlacesScreen({super.key});
@@ -34,7 +35,6 @@ class _PlacesScreenState extends State<PlacesScreen> {
           IconButton(
             icon: Image.asset('icons/search.png'),
             onPressed: () {
-              // Navigator.of(context).pushNamed('/searchscreen');
               context.go("/places/search");
             },
           ),

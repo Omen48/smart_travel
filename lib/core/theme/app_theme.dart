@@ -1,5 +1,5 @@
-import 'package:auth_study/presentation/theme/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_travel/core/theme/colors.dart';
 
 interface class AppTheme {
   static final light = ThemeData(
@@ -23,7 +23,7 @@ interface class AppTheme {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         backgroundColor: WidgetStateProperty.all(AppColors.orange),
-        padding: const MaterialStatePropertyAll(
+        padding: const WidgetStatePropertyAll(
           EdgeInsets.symmetric(horizontal: 31, vertical: 8),
         ),
       ),

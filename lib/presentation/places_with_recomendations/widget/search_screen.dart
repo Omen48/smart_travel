@@ -1,7 +1,8 @@
-import 'package:auth_study/presentation/widgets/my_textfields.dart';
-import 'package:auth_study/presentation/widgets/places.dart';
+
 import 'package:flutter/material.dart';
-import 'package:auth_study/presentation/theme/colors.dart';
+import 'package:smart_travel/core/theme/colors.dart';
+import 'package:smart_travel/core/widgets/my_textfields.dart';
+import 'package:smart_travel/core/widgets/places.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
