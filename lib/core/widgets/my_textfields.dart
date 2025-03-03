@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:smart_travel/core/resourses/res.dart';
 import 'package:smart_travel/core/theme/colors.dart';
 
-//Текстовое поле логина/регистрации
 class LoginRegisterTextField extends StatelessWidget {
   final TextEditingController? controller;
   final String? hintText;
   final bool obscureText;
   final double paddingvalue;
+
   const LoginRegisterTextField(
       {super.key,
       this.controller,
@@ -37,7 +39,9 @@ class LoginRegisterTextField extends StatelessWidget {
           fillColor: Colors.white,
           hintText: hintText,
           hintStyle: const TextStyle(fontSize: 17, fontWeight: FontWeight.w300),
-          suffixIcon: Image.asset('icons/pensil.png'),
+          suffixIcon: Padding(
+              padding: EdgeInsets.all(5),
+              child: SvgPicture.asset(Res.assetsPencil)),
         ),
         obscureText: obscureText,
       ),
@@ -45,9 +49,9 @@ class LoginRegisterTextField extends StatelessWidget {
   }
 }
 
-//Текстовое поле поиска
 class SearchTextField extends StatelessWidget {
   final Color color = AppColors.green;
+
   const SearchTextField({super.key});
 
   @override

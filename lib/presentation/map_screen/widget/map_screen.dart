@@ -1,32 +1,14 @@
 import 'package:flutter/material.dart';
 
-class MapScreen extends StatefulWidget {
-  const MapScreen({super.key});
+class MapWidget extends StatefulWidget {
+  const MapWidget({super.key});
 
   @override
-  State<MapScreen> createState() => _MapScreenState();
+  State<MapWidget> createState() => _MapWidgetState();
 }
 
-class _MapScreenState extends State<MapScreen> {
+class _MapWidgetState extends State<MapWidget> {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: SizedBox(
-          height: 25,
-          width: 25,
-          child: Image.asset('images/main_logo.png'),
-        ),
-        actions: [
-          IconButton(
-            icon: Image.asset('icons/search.png'),
-            onPressed: () {},
-          ),
-        ],
-      ),
-      body: SizedBox(
-        child: Image.asset('images/map.png'),
-      ),
-    );
-  }
+  Widget build(BuildContext context) =>
+      SizedBox(child: Image.asset('images/map.png'));
 }

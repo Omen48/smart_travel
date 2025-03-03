@@ -1,25 +1,22 @@
 import 'dart:async';
-import 'package:go_router/go_router.dart';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:smart_travel/routes/go_router.dart';
 
-class StartScreen extends StatefulWidget {
-  const StartScreen({super.key});
+class SplashWidget extends StatefulWidget {
+  const SplashWidget({super.key});
 
   @override
-  State<StartScreen> createState() => _StartScreenState();
+  State<SplashWidget> createState() => _SplashWidgetState();
 }
 
-class _StartScreenState extends State<StartScreen> {
+class _SplashWidgetState extends State<SplashWidget> {
   @override
   Widget build(BuildContext context) {
     Timer(const Duration(seconds: 1), () {
-      context.go('/auth');
+      context.go(RouterPath.auth);
     });
-    return const Scaffold(
-      body: Center(
-        child: Text('тестовый стартовый экрран'),
-      ),
-    );
+    return Center(child: Text('тестовый стартовый экрран'));
   }
 }

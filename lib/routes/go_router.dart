@@ -1,55 +1,56 @@
-import 'package:smart_travel/core/widgets/bottom_navigation_widget.dart';
-import 'package:smart_travel/presentation/login/widget/login_screen.dart';
-import 'package:smart_travel/presentation/login/widget/recover_screen.dart';
-import 'package:smart_travel/presentation/map_screen/widget/map_screen.dart';
-import 'package:smart_travel/presentation/places_with_recomendations/widget/places_screen.dart';
-import 'package:smart_travel/presentation/places_with_recomendations/widget/search_screen.dart';
+import 'package:smart_travel/presentation/bottom_menu/view/bottom_menu_view.dart';
+import 'package:smart_travel/presentation/login/view/login_view.dart';
+import 'package:smart_travel/presentation/main_screen/view/main_screen_view.dart';
+import 'package:smart_travel/presentation/main_screen/widget/search_widget.dart';
+import 'package:smart_travel/presentation/map_screen/view/map_view.dart';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:smart_travel/presentation/splash/widget/splash.dart';
-import 'package:smart_travel/presentation/user_screen/widget/user_screen.dart';
+import 'package:smart_travel/presentation/splash/view/splash_view.dart';
+import 'package:smart_travel/presentation/user_screen/view/user_info_view.dart';
+
+abstract class RouterPath {
+  static const splash = '/';
+  static const auth = '/auth';
+  static const places = '/places';
+  static const search = 'search';
+  static const map = '/map';
+  static const user = '/userscreen';
+}
 
 final router = GoRouter(
-  initialLocation: '/startscreen',
+  initialLocation: RouterPath.splash,
   routes: [
     GoRoute(
-      path: '/startscreen',
-      builder: (BuildContext context, GoRouterState state) =>
-          const StartScreen(),
+      path: RouterPath.splash,
+      builder:
+          (BuildContext context, GoRouterState state) => const SplashView(),
     ),
     GoRoute(
-      path: '/auth',
-      builder: (BuildContext context, GoRouterState state) =>
-          const OpenScreen(),
-      routes: [
-        GoRoute(
-          path: 'recover',
-          builder: (BuildContext context, GoRouterState state) =>
-              const RecoverScreen(),
-        ),
-      ],
-    ),
-    GoRoute(
-      path: '/mainscr',
-      builder: (BuildContext context, GoRouterState state) =>
-          const StartScreen(),
+      path: RouterPath.auth,
+      builder: (BuildContext context, GoRouterState state) => const LoginView(),
     ),
     StatefulShellRoute.indexedStack(
-      builder: (BuildContext context, GoRouterState state,
-          StatefulNavigationShell navigationShell) {
-        return BottomNavigationWidget(navigationShell: navigationShell);
-      },
+      builder:
+          (
+            BuildContext context,
+            GoRouterState state,
+            StatefulNavigationShell navigationShell,
+          ) => BottomMenuView(navigationShell: navigationShell),
       branches: <StatefulShellBranch>[
         StatefulShellBranch(
           routes: [
             GoRoute(
-              path: '/places',
-              builder: (BuildContext context, GoRouterState state) =>
-                  const PlacesScreen(),
+              path: RouterPath.places,
+              builder:
+                  (BuildContext context, GoRouterState state) =>
+                      const MainScreenView(),
               routes: [
                 GoRoute(
-                  path: 'search',
-                  builder: (context, state) => const SearchScreen(),
+                  name: RouterPath.search,
+
+                  path: RouterPath.search,
+                  builder: (context, state) => const SearchWidget(),
                 ),
               ],
             ),
@@ -58,21 +59,23 @@ final router = GoRouter(
         StatefulShellBranch(
           routes: [
             GoRoute(
-              path: '/map',
-              builder: (BuildContext context, GoRouterState state) =>
-                  const MapScreen(),
+              path: RouterPath.map,
+              builder:
+                  (BuildContext context, GoRouterState state) =>
+                      const MapView(),
             ),
           ],
         ),
         StatefulShellBranch(
           routes: [
             GoRoute(
-              path: '/userscreen',
-              builder: (BuildContext context, GoRouterState state) =>
-                  const UserInfoScreen(),
+              path: RouterPath.user,
+              builder:
+                  (BuildContext context, GoRouterState state) =>
+                      const UserInfoView(),
             ),
           ],
-        )
+        ),
       ],
     ),
   ],
